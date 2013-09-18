@@ -1,0 +1,35 @@
+<h1>Listing interns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Numero mecanografico</th>
+      <th>Telefone</th>
+      <th>Telemovel</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interns.each do |intern| %>
+      <tr>
+        <td><%= intern.nome %></td>
+        <td><%= intern.numero_mecanografico %></td>
+        <td><%= intern.telefone %></td>
+        <td><%= intern.telemovel %></td>
+        <td><%= intern.email %></td>
+        <td><%= link_to 'Show', intern %></td>
+        <td><%= link_to 'Edit', edit_intern_path(intern) %></td>
+        <td><%= link_to 'Destroy', intern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intern', new_intern_path %>

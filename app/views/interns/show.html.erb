@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @intern.nome %>
+</p>
+
+<p>
+  <strong>Numero mecanografico:</strong>
+  <%= @intern.numero_mecanografico %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @intern.telefone %>
+</p>
+
+<p>
+  <strong>Telemovel:</strong>
+  <%= @intern.telemovel %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @intern.email %>
+</p>
+
+<%= link_to 'Edit', edit_intern_path(@intern) %> |
+<%= link_to 'Back', interns_path %>
