@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<ul>
+		<li><%= link_to "Estagiários", interns_path %></li>
+		<li><%= link_to "Orientadores", supervisors_path %></li>
+	</ul>
 <%= yield %>
 
 </body>

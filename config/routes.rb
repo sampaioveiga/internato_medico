@@ -1,4 +1,6 @@
 InternatoMedico::Application.routes.draw do
+  resources :supervisors
+
   resources :interns
 
   # The priority is based upon order of creation: first created -> highest priority.
