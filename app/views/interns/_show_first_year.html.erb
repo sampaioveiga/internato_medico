@@ -1,0 +1,131 @@
+<%= @intern.firstyear.ano %><br />
+<%= link_to "Editar Ano Comum", edit_intern_firstyear_path(@intern, @intern.firstyear) %><br />
+<%= link_to "Eliminar Ano Comum", [@intern, @intern.firstyear], method: :delete, data: { confirm: 'Are you sure?' } %><br />
+
+<% unless @intern.firstyear.fymedicine.nil? %>
+	Medicina<br />
+	<%= @intern.firstyear.fymedicine.supervisor.nome %><br />
+	<%= @intern.firstyear.fymedicine.data_inicio %><br />
+	<%= @intern.firstyear.fymedicine.data_fim %><br />
+	<%= @intern.firstyear.fymedicine.nota %><br />
+	<%= link_to "Editar Medicina", edit_intern_firstyear_fymedicine_path(@intern, @intern.firstyear, @intern.firstyear.fymedicine) %>
+	<%= link_to "Eliminar Medicina", [@intern, @intern.firstyear, @intern.firstyear.fymedicine], method: :delete, data: { confirm: 'Are you sure?' } %><br />
+<% else %>
+	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.build_fymedicine]) do |f| %>
+		<fieldset>
+			<legend>Medicina</legend>
+			<%= f.label :supervisor_id %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.label :data_inicio %>
+			<%= f.date_select :data_inicio %>
+			<%= f.label :data_fim %>
+			<%= f.date_select :data_fim %>
+			<%= f.label :nota %>
+			<%= f.text_field :nota %>
+		</fieldset>
+		<%= f.submit %>
+	<% end %>
+<% end %>
+
+<% unless @intern.firstyear.fyprimary.nil? %>
+	Cuidados Primários<br />
+	<%= @intern.firstyear.fyprimary.supervisor.nome %><br />
+	<%= @intern.firstyear.fyprimary.data_inicio %><br />
+	<%= @intern.firstyear.fyprimary.data_fim %><br />
+	<%= @intern.firstyear.fyprimary.nota %><br />
+	<%= link_to "Editar Cuidados Primários", edit_intern_firstyear_fyprimary_path(@intern, @intern.firstyear, @intern.firstyear.fyprimary) %>
+	<%= link_to "Eliminar Cuidados Primários", [@intern, @intern.firstyear, @intern.firstyear.fyprimary], method: :delete, data: { confirm: 'Are you sure?' } %><br />
+<% else %>
+	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.build_fyprimary]) do |f| %>
+		<fieldset>
+			<legend>Cuidados Primários</legend>
+			<%= f.label :supervisor_id %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.label :data_inicio %>
+			<%= f.date_select :data_inicio %>
+			<%= f.label :data_fim %>
+			<%= f.date_select :data_fim %>
+			<%= f.label :nota %>
+			<%= f.text_field :nota %>
+		</fieldset>
+		<%= f.submit %>
+	<% end %>
+<% end %>
+
+<% unless @intern.firstyear.fycirurgy.nil? %>
+	Cirurgia<br />
+	<%= @intern.firstyear.fycirurgy.supervisor.nome %><br />
+	<%= @intern.firstyear.fycirurgy.data_inicio %><br />
+	<%= @intern.firstyear.fycirurgy.data_fim %><br />
+	<%= @intern.firstyear.fycirurgy.nota %><br />
+	<%= link_to "Editar Cirurgia", edit_intern_firstyear_fycirurgy_path(@intern, @intern.firstyear, @intern.firstyear.fycirurgy) %>
+	<%= link_to "Eliminar Cirurgia", [@intern, @intern.firstyear, @intern.firstyear.fycirurgy], method: :delete, data: { confirm: 'Are you sure?' } %><br />
+<% else %>
+	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.build_fycirurgy]) do |f| %>
+		<fieldset>
+			<legend>Cirurgia</legend>
+			<%= f.label :supervisor_id %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.label :data_inicio %>
+			<%= f.date_select :data_inicio %>
+			<%= f.label :data_fim %>
+			<%= f.date_select :data_fim %>
+			<%= f.label :nota %>
+			<%= f.text_field :nota %>
+		</fieldset>
+		<%= f.submit %>
+	<% end %>
+<% end %>
+
+<% unless @intern.firstyear.fypediatry.nil? %>
+	Pediatria<br />
+	<%= @intern.firstyear.fypediatry.supervisor.nome %><br />
+	<%= @intern.firstyear.fypediatry.data_inicio %><br />
+	<%= @intern.firstyear.fypediatry.data_fim %><br />
+	<%= @intern.firstyear.fypediatry.nota %><br />
+	<%= link_to "Editar Pediatria", edit_intern_firstyear_fypediatry_path(@intern, @intern.firstyear, @intern.firstyear.fypediatry) %>
+	<%= link_to "Eliminar Pediatria", [@intern, @intern.firstyear, @intern.firstyear.fypediatry], method: :delete, data: { confirm: 'Are you sure?' } %><br />
+<% else %>
+	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.build_fypediatry]) do |f| %>
+		<fieldset>
+			<legend>Pediatria</legend>
+			<%= f.label :supervisor_id %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.label :data_inicio %>
+			<%= f.date_select :data_inicio %>
+			<%= f.label :data_fim %>
+			<%= f.date_select :data_fim %>
+			<%= f.label :nota %>
+			<%= f.text_field :nota %>
+		</fieldset>
+		<%= f.submit %>
+	<% end %>
+<% end %>
+
+<% unless @intern.firstyear.fychoice.nil? %>
+	Opcional<br />
+	<%= @intern.firstyear.fychoice.fyoption.nome %><br />
+	<%= @intern.firstyear.fychoice.supervisor.nome %><br />
+	<%= @intern.firstyear.fychoice.data_inicio %><br />
+	<%= @intern.firstyear.fychoice.data_fim %><br />
+	<%= @intern.firstyear.fychoice.nota %><br />
+	<%= link_to "Editar #{@intern.firstyear.fychoice.fyoption.nome}", edit_intern_firstyear_fychoice_path(@intern, @intern.firstyear, @intern.firstyear.fychoice) %>
+	<%= link_to "Eliminar #{@intern.firstyear.fychoice.fyoption.nome}", [@intern, @intern.firstyear, @intern.firstyear.fychoice], method: :delete, data: { confirm: 'Are you sure?' } %><br />
+<% else %>
+	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.build_fychoice]) do |f| %>
+		<fieldset>
+			<legend>Opcional</legend>
+			<%= f.label :fyoption_id %>
+			<%= f.collection_select :fyoption_id, Fyoption.all, :id, :nome %>
+			<%= f.label :supervisor_id %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.label :data_inicio %>
+			<%= f.date_select :data_inicio %>
+			<%= f.label :data_fim %>
+			<%= f.date_select :data_fim %>
+			<%= f.label :nota %>
+			<%= f.text_field :nota %>
+		</fieldset>
+		<%= f.submit %>
+	<% end %>
+<% end %>

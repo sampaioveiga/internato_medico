@@ -27,3 +27,20 @@
 
 <%= link_to 'Edit', edit_intern_path(@intern) %> |
 <%= link_to 'Back', interns_path %>
+
+<hr />
+
+<% unless @intern.firstyear.nil? %>
+  <%= render 'show_first_year' %>
+<% else %>
+  <div id="btnCriarAnoComum">Criar Ano Comum</div>
+  <div id="addcomumyear" style="display:none;">
+    <%= render 'create_first_year' %>
+  </div>
+<% end %>
+
+<script>
+  $("#btnCriarAnoComum").click(function() {
+    $("#addcomumyear").fadeIn("slow");
+  });
+</script>

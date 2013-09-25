@@ -1,0 +1,18 @@
+<%= @intern.nome %><br />
+Cirurgia
+
+<%= form_for([@intern, @intern.firstyear, @intern.firstyear.fycirurgy]) do |f| %>
+	<fieldset>
+		<legend>Editar Cirurgia</legend>
+		<legend>Cirurgia</legend>
+		<%= f.label :supervisor_id %>
+		<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+		<%= f.label :data_inicio %>
+		<%= f.date_select :data_inicio %>
+		<%= f.label :data_fim %>
+		<%= f.date_select :data_fim %>
+		<%= f.label :nota %>
+		<%= f.text_field :nota %>
+	</fieldset>
+	<%= f.submit 'Guardar', class: 'btn btn-success' %>		
+<% end %>

@@ -1,0 +1,2 @@
+module FypediatriesHelper
+end

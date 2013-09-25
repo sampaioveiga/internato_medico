@@ -1,0 +1,8 @@
+<%= form_for([@intern, @intern.build_firstyear]) do |f| %>
+	<fieldset>
+		<legend>Ano Comum</legend>
+		<%= f.label :ano %>
+		<%= f.text_field :ano %>
+	</fieldset>
+	<%= f.submit %>
+<% end %>

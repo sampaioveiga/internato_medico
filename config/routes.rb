@@ -1,7 +1,15 @@
 InternatoMedico::Application.routes.draw do
-  resources :supervisors
-
-  resources :interns
+  resources :supervisors, except: [ :destroy ]
+  resources :fyoptions,   except: [ :destroy ]
+  resources :interns do
+    resources :firstyears do
+      resources :fymedicines
+      resources :fyprimaries
+      resources :fycirurgies
+      resources :fypediatries
+      resources :fychoices
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

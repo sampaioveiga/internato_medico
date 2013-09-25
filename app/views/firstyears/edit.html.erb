@@ -1,0 +1,11 @@
+<%= @intern.nome %><br />
+<%= @intern.firstyear.ano %>
+
+<%= form_for([@intern, @intern.firstyear]) do |f| %>
+	<fieldset>
+		<legend>Editar Ano Comum</legend>
+		<%= f.label :ano %>
+		<%= f.text_field :ano %>
+	</fieldset>
+	<%= f.submit 'Guardar', class: 'btn btn-success' %>
+<% end %>

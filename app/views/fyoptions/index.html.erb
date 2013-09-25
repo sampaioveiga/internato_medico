@@ -1,0 +1,27 @@
+<h1>Listing fyoptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fyoptions.each do |fyoption| %>
+      <tr>
+        <td><%= fyoption.nome %></td>
+        <td><%= link_to 'Show', fyoption %></td>
+        <td><%= link_to 'Edit', edit_fyoption_path(fyoption) %></td>
+        <td><%= link_to 'Destroy', fyoption, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fyoption', new_fyoption_path %>
