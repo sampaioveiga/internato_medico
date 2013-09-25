@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925113446) do
+ActiveRecord::Schema.define(version: 20130925153033) do
 
   create_table "firstyears", force: true do |t|
     t.integer  "intern_id"
@@ -95,6 +95,12 @@ ActiveRecord::Schema.define(version: 20130925113446) do
   add_index "fyprimaries", ["firstyear_id"], name: "index_fyprimaries_on_firstyear_id"
   add_index "fyprimaries", ["supervisor_id"], name: "index_fyprimaries_on_supervisor_id"
 
+  create_table "healthcareunits", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "interns", force: true do |t|
     t.string   "nome"
     t.integer  "numero_mecanografico"
@@ -104,6 +110,15 @@ ActiveRecord::Schema.define(version: 20130925113446) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "services", force: true do |t|
+    t.string   "nome"
+    t.integer  "healthcareunit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["healthcareunit_id"], name: "index_services_on_healthcareunit_id"
 
   create_table "supervisors", force: true do |t|
     t.string   "nome"

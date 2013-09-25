@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @healthcareunit.nome %>
+</p>
+
+<%= form_for ([@healthcareunit, @healthcareunit.services.build]) do |f| %>
+	<fieldset>
+		<legend>Novo serviço</legend>
+		<%= f.label :nome %>
+		<%= f.text_field :nome %>
+	</fieldset>
+	<%= f.submit %>
+<% end %>
+
+<% @healthcareunit.services.each do |service| %>
+	<%= link_to service.nome, edit_healthcareunit_service_path(@healthcareunit, service) %><br />
+<% end %>
+
+<%= link_to 'Edit', edit_healthcareunit_path(@healthcareunit) %> |
+<%= link_to 'Back', healthcareunits_path %>
