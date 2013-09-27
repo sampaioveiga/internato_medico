@@ -1,3 +1,3 @@
 class Service < ActiveRecord::Base
-  belongs_to :healthcareunit
+	has_many :internships
 end

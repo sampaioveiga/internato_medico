@@ -1,31 +1,74 @@
 class ServicesController < ApplicationController
-	before_action :load_healthcareunit
+	before_action :set_service, only: [:show, :edit, :update, :destroy]
 
-	def create
-		@healthcareunit.services.create(service_params)
-		redirect_to @healthcareunit
+	# GET /services
+  	# GET /services.json
+  	def index
+    	@services = Service.all
 	end
 
-	def edit
-		@service = @healthcareunit.services.find(params[:id])
-	end
+  	# GET /services/1
+  	# GET /services/1.json
+  	def show
+  	end
 
-	def update
-		@service = @healthcareunit.services.find(params[:id])
+  	# GET /services/new
+  	def new
+    	@service = Service.new
+  	end
 
-		if @service.update_attributes(service_params)
-			redirect_to @healthcareunit, notice: "Serviço atualizado"
-		else
-			render 'edit'
-		end
-	end
+  	# GET /services/1/edit
+  	def edit
+  	end
 
-	private
-		def load_healthcareunit
-			@healthcareunit = Healthcareunit.find(params[:healthcareunit_id])
-		end
+  	# POST /services
+  	# POST /services.json
+  	def create
+    	@service = Service.new(service_params)
 
-		def service_params
-			params.require(:service).permit(:nome)
-		end
+    	respond_to do |format|
+      		if @service.save
+        		format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        		format.json { render action: 'show', status: :created, location: @service }
+      		else
+        		format.html { render action: 'new' }
+        		format.json { render json: @service.errors, status: :unprocessable_entity }
+      		end
+    	end
+  	end
+
+  	# PATCH/PUT /services/1
+  	# PATCH/PUT /services/1.json
+  	def update
+    	respond_to do |format|
+      		if @service.update(service_params)
+        		format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        		format.json { head :no_content }
+      		else
+        		format.html { render action: 'edit' }
+        		format.json { render json: @service.errors, status: :unprocessable_entity }
+      		end
+    	end
+  	end
+
+  	# DELETE /services/1
+  	# DELETE /services/1.json
+  	def destroy
+    	@service.destroy
+    	respond_to do |format|
+      		format.html { redirect_to services_url }
+      		format.json { head :no_content }
+    	end
+  	end
+
+  	private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_service
+    	@service = Service.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def service_params
+      	params.require(:service).permit(:nome)
+    end
 end

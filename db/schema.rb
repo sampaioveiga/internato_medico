@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925153033) do
+ActiveRecord::Schema.define(version: 20130927090822) do
 
   create_table "firstyears", force: true do |t|
     t.integer  "intern_id"
     t.integer  "ano"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "observacoes"
+    t.string   "local"
   end
 
   add_index "firstyears", ["intern_id"], name: "index_firstyears_on_intern_id"
@@ -109,16 +111,33 @@ ActiveRecord::Schema.define(version: 20130925153033) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cedula_profissional"
   end
+
+  create_table "internships", force: true do |t|
+    t.string   "nome"
+    t.integer  "supervisor_id"
+    t.integer  "healthcareunit_id"
+    t.integer  "service_id"
+    t.string   "estado"
+    t.date     "data_inicio"
+    t.date     "data_fim"
+    t.string   "observacoes"
+    t.integer  "nota"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "intern_id"
+  end
+
+  add_index "internships", ["healthcareunit_id"], name: "index_internships_on_healthcareunit_id"
+  add_index "internships", ["service_id"], name: "index_internships_on_service_id"
+  add_index "internships", ["supervisor_id"], name: "index_internships_on_supervisor_id"
 
   create_table "services", force: true do |t|
     t.string   "nome"
-    t.integer  "healthcareunit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "services", ["healthcareunit_id"], name: "index_services_on_healthcareunit_id"
 
   create_table "supervisors", force: true do |t|
     t.string   "nome"

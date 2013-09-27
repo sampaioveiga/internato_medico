@@ -10,6 +10,7 @@ class InternsController < ApplicationController
   # GET /interns/1
   # GET /interns/1.json
   def show
+    @internships = @intern.internships.order('data_inicio')
   end
 
   # GET /interns/new
@@ -69,6 +70,6 @@ class InternsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def intern_params
-      params.require(:intern).permit(:nome, :numero_mecanografico, :telefone, :telemovel, :email, :supervisor_id)
+      params.require(:intern).permit(:nome, :numero_mecanografico, :telefone, :telemovel, :email, :supervisor_id, :cedula_profissional)
     end
 end

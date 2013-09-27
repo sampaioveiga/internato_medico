@@ -1,4 +1,6 @@
 <%= @intern.firstyear.ano %><br />
+<%= @intern.firstyear.local %><br />
+<%= @intern.firstyear.observacoes %><br />
 <%= link_to "Editar Ano Comum", edit_intern_firstyear_path(@intern, @intern.firstyear) %><br />
 <%= link_to "Eliminar Ano Comum", [@intern, @intern.firstyear], method: :delete, data: { confirm: 'Are you sure?' } %><br />
 
@@ -15,7 +17,7 @@
 		<fieldset>
 			<legend>Medicina</legend>
 			<%= f.label :supervisor_id %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
 			<%= f.label :data_inicio %>
 			<%= f.date_select :data_inicio %>
 			<%= f.label :data_fim %>
@@ -40,7 +42,7 @@
 		<fieldset>
 			<legend>Cuidados Primários</legend>
 			<%= f.label :supervisor_id %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
 			<%= f.label :data_inicio %>
 			<%= f.date_select :data_inicio %>
 			<%= f.label :data_fim %>
@@ -65,7 +67,7 @@
 		<fieldset>
 			<legend>Cirurgia</legend>
 			<%= f.label :supervisor_id %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
 			<%= f.label :data_inicio %>
 			<%= f.date_select :data_inicio %>
 			<%= f.label :data_fim %>
@@ -90,7 +92,7 @@
 		<fieldset>
 			<legend>Pediatria</legend>
 			<%= f.label :supervisor_id %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
 			<%= f.label :data_inicio %>
 			<%= f.date_select :data_inicio %>
 			<%= f.label :data_fim %>
@@ -118,7 +120,7 @@
 			<%= f.label :fyoption_id %>
 			<%= f.collection_select :fyoption_id, Fyoption.all, :id, :nome %>
 			<%= f.label :supervisor_id %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
 			<%= f.label :data_inicio %>
 			<%= f.date_select :data_inicio %>
 			<%= f.label :data_fim %>

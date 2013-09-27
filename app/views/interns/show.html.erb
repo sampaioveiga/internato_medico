@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Cedula Profissional:</strong>
+  <%= @intern.cedula_profissional %>
+</p>
+
+<p>
   <strong>Telefone:</strong>
   <%= @intern.telefone %>
 </p>
@@ -39,8 +44,19 @@
   </div>
 <% end %>
 
+<hr />
+<div id="btnCriarEspecialidade">Criar Especialidade</div>
+  <div id="addinternship" style="display:none;">
+    <%= render 'create_internship' %>
+  </div>
+
+<%= render 'show_internships' %>
+
 <script>
   $("#btnCriarAnoComum").click(function() {
-    $("#addcomumyear").fadeIn("slow");
+    $("#addcomumyear").fadeToggle("slow");
+  });
+  $("#btnCriarEspecialidade").click(function() {
+    $("#addinternship").fadeToggle("slow");
   });
 </script>

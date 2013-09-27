@@ -29,6 +29,6 @@ class FirstyearsController < ApplicationController
 		end
 
 		def firstyear_params
-			params.require(:firstyear).permit(:ano)
+			params.require(:firstyear).permit(:ano, :local, :observacoes)
 		end
 end

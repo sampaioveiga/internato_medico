@@ -1,0 +1,24 @@
+<%= form_for([@intern, @internship]) do |f| %>
+	<fieldset>
+		<legend>Nova Especialidade</legend>
+		<%= f.label :nome %>
+		<%= f.text_field :nome %><br />
+		<%= f.label :supervisor_id %>
+		<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %><br />
+		<%= f.label :healthcareunit_id %>
+		<%= f.collection_select :healthcareunit_id, Healthcareunit.all, :id, :nome, include_blank: true %><br />
+		<%= f.label :service_id %>
+		<%= f.collection_select :service_id, Service.all, :id, :nome, include_blank: true %><br />
+		<%= f.label :estado %>
+		<%= f.text_field :estado %><br />
+		<%= f.label :data_inicio %>
+		<%= f.date_select :data_inicio %><br />
+		<%= f.label :data_fim %>
+		<%= f.date_select :data_fim %><br />
+		<%= f.label :nota %>
+		<%= f.text_field :nota %><br />
+		<%= f.label :observacoes %>
+		<%= f.text_area :observacoes %><br />
+	</fieldset>
+	<%= f.submit %>
+<% end %>

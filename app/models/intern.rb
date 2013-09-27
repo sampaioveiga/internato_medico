@@ -1,5 +1,6 @@
 class Intern < ActiveRecord::Base
 	has_one :firstyear, validate: true, dependent: :destroy
+	has_many :internships, dependent: :destroy
 	
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :nome, 

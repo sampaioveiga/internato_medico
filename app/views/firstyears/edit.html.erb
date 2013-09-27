@@ -6,6 +6,10 @@
 		<legend>Editar Ano Comum</legend>
 		<%= f.label :ano %>
 		<%= f.text_field :ano %>
+		<%= f.label :local %>
+		<%= f.text_field :local %>
+		<%= f.label :observacoes %>
+		<%= f.text_area :observacoes %>
 	</fieldset>
 	<%= f.submit 'Guardar', class: 'btn btn-success' %>
 <% end %>

@@ -1,5 +1,6 @@
-<%= form_for ([@healthcareunit,@service]) do |f| %>
-	<%= f.label :nome %>
-	<%= f.text_field :nome %>
-	<%= f.submit %>
-<% end %>
+<h1>Editing service</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @service %> |
+<%= link_to 'Back', services_path %>
