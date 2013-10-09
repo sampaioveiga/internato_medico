@@ -1,6 +1,6 @@
-<h1>Editing fyoption</h1>
+<% provide(:title, "Editar Opção Ano Comum") %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @fyoption %> |
-<%= link_to 'Back', fyoptions_path %>
+<div class="span10 offset1">
+	<h1>Editar <%= @fyoption.nome %></h1>
+	<%= render 'form' %>
+</div>

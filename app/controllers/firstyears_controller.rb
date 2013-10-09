@@ -1,6 +1,9 @@
 class FirstyearsController < ApplicationController
 	before_action :load_intern
 
+	def show
+	end
+
 	def create
 		@intern.create_firstyear(firstyear_params)
 		redirect_to @intern

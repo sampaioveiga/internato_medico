@@ -4,7 +4,7 @@ class FyoptionsController < ApplicationController
   # GET /fyoptions
   # GET /fyoptions.json
   def index
-    @fyoptions = Fyoption.all
+    @fyoptions = Fyoption.order('nome')
   end
 
   # GET /fyoptions/1
@@ -28,7 +28,7 @@ class FyoptionsController < ApplicationController
 
     respond_to do |format|
       if @fyoption.save
-        format.html { redirect_to @fyoption, notice: 'Fyoption was successfully created.' }
+        format.html { redirect_to fyoptions_path, notice: 'Opção Ano Comum criada' }
         format.json { render action: 'show', status: :created, location: @fyoption }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class FyoptionsController < ApplicationController
   def update
     respond_to do |format|
       if @fyoption.update(fyoption_params)
-        format.html { redirect_to @fyoption, notice: 'Fyoption was successfully updated.' }
+        format.html { redirect_to fyoptions_path, notice: 'Opção Ano Comum atualizada' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -1,27 +1,17 @@
-<h1>Listing fyoptions</h1>
+<% provide(:title, "Opções Ano Comum") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fyoptions.each do |fyoption| %>
-      <tr>
-        <td><%= fyoption.nome %></td>
-        <td><%= link_to 'Show', fyoption %></td>
-        <td><%= link_to 'Edit', edit_fyoption_path(fyoption) %></td>
-        <td><%= link_to 'Destroy', fyoption, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Fyoption', new_fyoption_path %>
+<div class="span10 offset1">
+    <h1>Opções Ano Comum</h1>
+    <div class="actions">
+        <%= link_to 'Nova Opção Ano Comum', new_fyoption_path, class: 'btn' %>
+    </div>
+    <table class="table">
+        <tbody>
+            <% @fyoptions.each do |fyoption| %>
+                <tr>
+                    <td><%= link_to fyoption.nome, edit_fyoption_path(fyoption) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

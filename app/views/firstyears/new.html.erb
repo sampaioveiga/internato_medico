@@ -1,0 +1,15 @@
+<% provide(:title, "Novo Ano Comum") %>
+
+<div class="span8 offset2">
+	<h1><%= @intern.nome %></h1>
+	<%= form_for([@intern, @intern.build_firstyear]) do |f| %>
+		<fieldset>
+			<legend>Novo Ano Comum</legend>
+			<%= f.text_field :ano, placeholder: 'Ano' %>
+			<%= f.text_field :local, placeholder: 'Local' %>
+			<%= f.text_area :observacoes, placeholder: 'Observações' %>
+		</fieldset>
+		<%= f.submit 'Guardar', class: 'btn btn-success' %>
+		<%= link_to "Voltar", @intern, class: 'btn' %>
+	<% end %>
+</div>

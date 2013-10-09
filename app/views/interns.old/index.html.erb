@@ -1,0 +1,35 @@
+<% provide(:title, "Internos") %>
+
+<div class="span10 offset1">
+    <h1>Internos</h1>
+    <div class="actions">
+        <%= link_to 'Novo Interno', new_intern_path, class: 'btn' %>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Numero mecanográfico</th>
+                <th>Telefone</th>
+                <th>Telemovel</th>
+                <th>E-mail</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @interns.each do |intern| %>
+                <tr>
+                    <td><%= link_to intern.nome, intern %></td>
+                    <td><%= intern.numero_mecanografico %></td>
+                    <td><%= intern.telefone %></td>
+                    <td><%= intern.telemovel %></td>
+                    <td><%= intern.email %></td>
+                    <td><%= link_to 'Editar', edit_intern_path(intern) %></td>
+                    <td><%= link_to 'Eliminar', intern, method: :delete, data: { confirm: 'Tem a certeza?' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

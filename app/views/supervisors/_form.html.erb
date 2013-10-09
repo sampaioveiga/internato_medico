@@ -11,27 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
+  <fieldset>
+    <%= f.label :nome %>
     <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :especialidade %><br>
+    <%= f.label :especialidade %>
     <%= f.text_field :especialidade %>
-  </div>
-  <div class="field">
-    <%= f.label :telefone %><br>
-    <%= f.number_field :telefone %>
-  </div>
-  <div class="field">
-    <%= f.label :telemovel %><br>
-    <%= f.number_field :telemovel %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :telefone %>
+    <%= f.text_field :telefone %>
+    <%= f.label :telemovel %>
+    <%= f.text_field :telemovel %>
+    <%= f.label :email %>
     <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </fieldset>
+  <%= f.submit "Guardar", class: 'btn btn-success' %>
+  <%= link_to 'Cancelar', supervisors_path, class: 'btn' %>
+  
 <% end %>

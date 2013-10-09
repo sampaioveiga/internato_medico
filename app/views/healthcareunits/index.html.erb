@@ -1,27 +1,19 @@
-<h1>Listing healthcareunits</h1>
+<% provide(:title, "Unidades de Saúde") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="span10 offset1">
+    <h1>Unidades de Saúde</h1>
 
-  <tbody>
-    <% @healthcareunits.each do |healthcareunit| %>
-      <tr>
-        <td><%= healthcareunit.nome %></td>
-        <td><%= link_to 'Show', healthcareunit %></td>
-        <td><%= link_to 'Edit', edit_healthcareunit_path(healthcareunit) %></td>
-        <td><%= link_to 'Destroy', healthcareunit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="actions">
+        <%= link_to 'Nova Unidade de Saúde', new_healthcareunit_path, class: 'btn' %>
+    </div>
 
-<br>
-
-<%= link_to 'New Healthcareunit', new_healthcareunit_path %>
+    <table class="table">
+        <tbody>
+            <% @healthcareunits.each do |healthcareunit| %>
+                <tr>
+                    <td><%= link_to healthcareunit.nome, edit_healthcareunit_path(healthcareunit) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

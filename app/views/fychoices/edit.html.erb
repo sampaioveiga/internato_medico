@@ -1,19 +1,22 @@
-<%= @intern.nome %><br />
-<%= @intern.firstyear.fychoice.fyoption.nome %>
+<% provide(:title, @intern.nome) %>
+<div class="span8 offset2">
+	<h1><%= @intern.nome %></h1>
+	<h2>Ano Comun</h2>
 
-<%= form_for([@intern, @intern.firstyear, @intern.firstyear.fychoice]) do |f| %>
-	<fieldset>
-		<legend>Editar Opcional</legend>
-		<%= f.label :fyoption_id %>
-		<%= f.collection_select :fyoption_id, Fyoption.all, :id, :nome %>
-		<%= f.label :supervisor_id %>
-		<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
-		<%= f.label :data_inicio %>
-		<%= f.date_select :data_inicio %>
-		<%= f.label :data_fim %>
-		<%= f.date_select :data_fim %>
-		<%= f.label :nota %>
-		<%= f.text_field :nota %>
-	</fieldset>
-	<%= f.submit 'Guardar', class: 'btn btn-success' %>		
-<% end %>
+	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.fychoice]) do |f| %>
+		<fieldset>
+			<legend>Editar <%= @intern.firstyear.fychoice.fyoption.nome %></legend>
+			<%= f.label :fyoption_id %>
+			<%= f.collection_select :fyoption_id, Fyoption.order('nome'), :id, :nome %>
+			<%= f.label :supervisor_id %>
+			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome %>
+			<%= f.label :data_inicio %>
+			<%= f.date_select :data_inicio %>
+			<%= f.label :data_fim %>
+			<%= f.date_select :data_fim %>
+			<%= f.label :nota %>
+			<%= f.text_field :nota %>
+		</fieldset>
+		<%= f.submit 'Guardar', class: 'btn btn-success' %>		
+	<% end %>
+</div>

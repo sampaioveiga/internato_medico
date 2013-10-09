@@ -1,0 +1,19 @@
+<% unless @intern.firstyear.fychoice.nil? %>
+	<legend>Opção</legend>
+
+	<dl>
+		<dt>Orientador</dt>
+		<dd><%= @intern.firstyear.fychoice.supervisor.nome %></dd>
+		<dt>Data Início</dt>
+		<dd><%= @intern.firstyear.fychoice.data_inicio %></dd>
+		<dt>Data Fim</dt>
+		<dd><%= @intern.firstyear.fychoice.data_fim %></dd>
+		<dt>Nota</dt>
+		<dd><%= @intern.firstyear.fychoice.nota %></dd>
+	</dl>
+	
+	<%= link_to "Editar", edit_intern_firstyear_fychoice_path(@intern, @intern.firstyear, @intern.firstyear.fychoice), class: 'btn' %>
+	<%= link_to "Eliminar", [@intern, @intern.firstyear, @intern.firstyear.fychoice], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %><br />
+<% else %>
+	<%= link_to "Opção", new_intern_firstyear_fychoice_path(@intern, @intern.firstyear), class: 'btn' %>
+<% end %>

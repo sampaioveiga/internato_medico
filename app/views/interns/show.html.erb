@@ -1,62 +1,36 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @intern.nome) %>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @intern.nome %>
-</p>
+<div class="span10 offset1">
+	<div class="row-fluid">
+		<div class="span8">
+			<h1 class="text-left"><%= @intern.nome %></h1>
+			<%= link_to 'Editar', edit_intern_path(@intern), class: 'btn btn-mini' %>
+			<%= link_to 'Eliminar', @intern, method: :delete, data: { confirm: 'Tem a certeza?' }, class: 'btn  btn-mini btn-danger' %>
+			<% if @intern.firstyear.nil? %>
+				<%= link_to 'Ano Comum', new_intern_firstyear_path(@intern), class: 'btn btn-mini' %>
+			<% end %>
+			<%= link_to 'Especialidade', new_intern_internship_path(@intern), class: 'btn btn-mini' %>
+		</div>   
+		<div class="span4"> 
+			<dl class="dl-horizontal">
+				<dt>N. mecanográfico:</dt>
+				<dd><%= @intern.numero_mecanografico %><dd>
+				<dt>Cédula Profissional:</dt>
+				<dd><%= @intern.cedula_profissional %></dd>
+				<dt>Telefone:</dt>
+				<dd><%= @intern.telefone %></dd>
+				<dt>Telemóvel:</dt>
+				<dd><%= @intern.telemovel %></dd>
+				<dt>E-mail:</dt>
+				<dd><%= @intern.email %></dd>
+			</dl>
+		</div>
+	</div>
+	<br />
+	
+	<% unless @intern.firstyear.nil? %>
+		<%= render 'firstyears/showfirstyear' %>
+	<% end %>
 
-<p>
-  <strong>Numero mecanografico:</strong>
-  <%= @intern.numero_mecanografico %>
-</p>
-
-<p>
-  <strong>Cedula Profissional:</strong>
-  <%= @intern.cedula_profissional %>
-</p>
-
-<p>
-  <strong>Telefone:</strong>
-  <%= @intern.telefone %>
-</p>
-
-<p>
-  <strong>Telemovel:</strong>
-  <%= @intern.telemovel %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @intern.email %>
-</p>
-
-<%= link_to 'Edit', edit_intern_path(@intern) %> |
-<%= link_to 'Back', interns_path %>
-
-<hr />
-
-<% unless @intern.firstyear.nil? %>
-  <%= render 'show_first_year' %>
-<% else %>
-  <div id="btnCriarAnoComum">Criar Ano Comum</div>
-  <div id="addcomumyear" style="display:none;">
-    <%= render 'create_first_year' %>
-  </div>
-<% end %>
-
-<hr />
-<div id="btnCriarEspecialidade">Criar Especialidade</div>
-  <div id="addinternship" style="display:none;">
-    <%= render 'create_internship' %>
-  </div>
-
-<%= render 'show_internships' %>
-
-<script>
-  $("#btnCriarAnoComum").click(function() {
-    $("#addcomumyear").fadeToggle("slow");
-  });
-  $("#btnCriarEspecialidade").click(function() {
-    $("#addinternship").fadeToggle("slow");
-  });
-</script>
+	<%= render 'internships/showinternships' %>
+</div>

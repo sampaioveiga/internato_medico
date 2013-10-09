@@ -1,0 +1,30 @@
+<% @intern.internships.each do |internship| %>
+	<div class="row-fluid well">
+		<div class="span3">
+			<legend><%= internship.nome %></legend>
+			<%= link_to "Editar", edit_intern_internship_path(@intern, internship), class: 'btn' %>
+			<%= link_to "Eliminar", '#', class: 'btn btn-danger' %>
+		</div>
+		<div class="span9"
+			<dl>
+				<dt>Orientador</dt>
+				<dd></dd>
+				<dt>Unidade de Saúde</dt>
+				<dd></dd>
+				<dt>Serviço</dt>
+				<dd></dd>
+				<dt>Estado</dt>
+				<dd></dd>
+				<dt>Data início</dt>
+				<dd></dd>
+				<dt>Data fim</dt>
+				<dd></dd>
+				<dt>Nota</dt>
+				<dd></dd>
+				<dt>Observações</dt>
+				<dd></dd>
+			</dl>
+			
+		</div>
+	</div>
+<% end %>

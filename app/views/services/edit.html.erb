@@ -1,6 +1,5 @@
-<h1>Editing service</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @service %> |
-<%= link_to 'Back', services_path %>
+<% provide(:title, "Editar Serviço") %>
+<div class="span10 offset1">
+	<h1>Editar <%= @service.nome %></h1>
+	<%= render 'form' %>
+</div>

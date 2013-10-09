@@ -1,0 +1,19 @@
+<% unless @intern.firstyear.fypediatry.nil? %>
+	<legend>Pediatria</legend>
+
+	<dl>
+		<dt>Orientador</dt>
+		<dd><%= @intern.firstyear.fypediatry.supervisor.nome %></dd>
+		<dt>Data Início</dt>
+		<dd><%= @intern.firstyear.fypediatry.data_inicio %></dd>
+		<dt>Data Fim</dt>
+		<dd><%= @intern.firstyear.fypediatry.data_fim %></dd>
+		<dt>Nota</dt>
+		<dd><%= @intern.firstyear.fypediatry.nota %></dd>
+	</dl>
+	
+	<%= link_to "Editar", edit_intern_firstyear_fypediatry_path(@intern, @intern.firstyear, @intern.firstyear.fypediatry), class: 'btn' %>
+	<%= link_to "Eliminar", [@intern, @intern.firstyear, @intern.firstyear.fypediatry], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %><br />
+<% else %>
+	<%= link_to "Pediatria", new_intern_firstyear_fypediatry_path(@intern, @intern.firstyear), class: 'btn' %>
+<% end %>

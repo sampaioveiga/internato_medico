@@ -16,6 +16,7 @@
     <%= f.text_field :nome %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Guardar', class: 'btn btn-success' %>
+    <%= link_to 'Cancelar', fyoptions_path, class: 'btn' %>
   </div>
 <% end %>

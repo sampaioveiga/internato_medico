@@ -4,13 +4,13 @@ class HealthcareunitsController < ApplicationController
   # GET /healthcareunits
   # GET /healthcareunits.json
   def index
-    @healthcareunits = Healthcareunit.all
+    @healthcareunits = Healthcareunit.order('nome')
   end
 
   # GET /healthcareunits/1
   # GET /healthcareunits/1.json
-  def show
-  end
+  #def show
+  #end
 
   # GET /healthcareunits/new
   def new
@@ -28,7 +28,7 @@ class HealthcareunitsController < ApplicationController
 
     respond_to do |format|
       if @healthcareunit.save
-        format.html { redirect_to @healthcareunit, notice: 'Healthcareunit was successfully created.' }
+        format.html { redirect_to healthcareunits_path, notice: 'Unidade de saúde criada.' }
         format.json { render action: 'show', status: :created, location: @healthcareunit }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class HealthcareunitsController < ApplicationController
   def update
     respond_to do |format|
       if @healthcareunit.update(healthcareunit_params)
-        format.html { redirect_to @healthcareunit, notice: 'Healthcareunit was successfully updated.' }
+        format.html { redirect_to healthcareunits_path, notice: 'Unidade de saúde atualizada.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

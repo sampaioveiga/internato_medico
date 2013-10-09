@@ -1,0 +1,11 @@
+<tr>
+	<% unless @intern.firstyear.fypediatry.nil? %>
+		<th><%= link_to "Pediatria", edit_intern_firstyear_fypediatry_path(@intern, @intern.firstyear, @intern.firstyear.fypediatry) %></th>
+		<td><%= @intern.firstyear.fypediatry.supervisor.nome %></td>
+		<td><%= @intern.firstyear.fypediatry.data_inicio %></td>
+		<td><%= @intern.firstyear.fypediatry.data_fim %></td>
+		<td><%= @intern.firstyear.fypediatry.nota %></td>
+	<% else %>
+		<%= link_to "Pediatria", new_intern_firstyear_fypediatry_path(@intern, @intern.firstyear), class: 'btn' %>
+	<% end %>
+</tr>

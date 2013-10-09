@@ -4,7 +4,7 @@ class SupervisorsController < ApplicationController
   # GET /supervisors
   # GET /supervisors.json
   def index
-    @supervisors = Supervisor.all
+    @supervisors = Supervisor.order('nome')
   end
 
   # GET /supervisors/1
@@ -28,7 +28,7 @@ class SupervisorsController < ApplicationController
 
     respond_to do |format|
       if @supervisor.save
-        format.html { redirect_to @supervisor, notice: 'Supervisor was successfully created.' }
+        format.html { redirect_to supervisors_path, notice: 'Orientador criado' }
         format.json { render action: 'show', status: :created, location: @supervisor }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class SupervisorsController < ApplicationController
   def update
     respond_to do |format|
       if @supervisor.update(supervisor_params)
-        format.html { redirect_to @supervisor, notice: 'Supervisor was successfully updated.' }
+        format.html { redirect_to supervisors_path, notice: 'Orientador atualizado' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

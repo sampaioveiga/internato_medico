@@ -4,7 +4,7 @@ class InternsController < ApplicationController
   # GET /interns
   # GET /interns.json
   def index
-    @interns = Intern.all
+    @interns = Intern.order('nome')
   end
 
   # GET /interns/1
@@ -29,7 +29,7 @@ class InternsController < ApplicationController
 
     respond_to do |format|
       if @intern.save
-        format.html { redirect_to @intern, notice: 'Intern was successfully created.' }
+        format.html { redirect_to @intern, notice: 'Interno criado' }
         format.json { render action: 'show', status: :created, location: @intern }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class InternsController < ApplicationController
   def update
     respond_to do |format|
       if @intern.update(intern_params)
-        format.html { redirect_to @intern, notice: 'Intern was successfully updated.' }
+        format.html { redirect_to @intern, notice: 'Interno atualizado' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class InternsController < ApplicationController
   def destroy
     @intern.destroy
     respond_to do |format|
-      format.html { redirect_to interns_url }
+      format.html { redirect_to interns_url, notice: 'Interno eliminado' }
       format.json { head :no_content }
     end
   end

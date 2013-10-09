@@ -1,0 +1,26 @@
+<% provide(:title, "Novo Estágio de Especialidade") %>
+
+<div class="span8 offset2">
+	<h1><%= @intern.nome %></h1>
+	<%= form_for([@intern, @intern.internships.build]) do |f| %>
+		<fieldset>
+			<legend>Novo Estágio de Especialidade</legend>
+			<%= f.text_field :nome, placeholder: 'Designação' %>
+			<%= f.label :supervisor_id, "Orientador" %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
+			<%= f.label :healthcareunit_id, "Unidade de Saúde" %>
+			<%= f.collection_select :healthcareunit_id, Healthcareunit.all, :id, :nome, include_blank: true %>
+			<%= f.label :service_id, "Serviço" %>
+			<%= f.collection_select :service_id, Service.all, :id, :nome, include_blank: true %>
+			<%= f.text_field :estado, placeholder: 'Estado' %>
+			<%= f.label :data_inicio, "Data início" %>
+			<%= f.date_select :data_inicio %>
+			<%= f.label :data_fim %>
+			<%= f.date_select :data_fim %>
+			<%= f.text_field :nota, placeholder: 'Nota' %>
+			<%= f.text_area :observacoes, placeholder: 'Observações' %>
+		</fieldset>
+		<%= f.submit "Guardar", class: 'btn btn-success' %>
+		<%= link_to "Voltar", @intern, class: 'btn' %>
+	<% end %>
+</div>

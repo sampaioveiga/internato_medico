@@ -7,6 +7,5 @@ class Firstyear < ActiveRecord::Base
   has_one :fychoice,	dependent: :destroy
 
   validates :ano,
-  	presence: true,
-  	length: { is: 4 }
+  	presence: true
 end

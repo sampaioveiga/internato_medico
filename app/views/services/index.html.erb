@@ -1,27 +1,19 @@
-<h1>Listing services</h1>
+<% provide(:title, "Serviços") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="span10 offset1">
+    <h1>Serviços</h1>
 
-  <tbody>
-    <% @services.each do |service| %>
-      <tr>
-        <td><%= service.nome %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="actions">
+        <%= link_to 'Novo Serviço', new_service_path, class: 'btn' %>
+    </div>
 
-<br>
-
-<%= link_to 'New Service', new_service_path %>
+    <table class="table">
+        <tbody>
+            <% @services.each do |service| %>
+                <tr>
+                    <td><%= link_to service.nome, edit_service_path(service) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

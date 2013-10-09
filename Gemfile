@@ -13,6 +13,10 @@ end
 gem 'sass-rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.2'
 
+# paginate
+gem 'will_paginate', '3.0.5'
+gem 'bootstrap-will_paginate', '0.0.10'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.1.1'
 

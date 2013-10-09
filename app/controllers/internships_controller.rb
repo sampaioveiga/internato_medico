@@ -1,9 +1,12 @@
 class InternshipsController < ApplicationController
 	before_action :load_intern
 
+	def new
+	end
+
 	def create
 		@internship = @intern.internships.create(internship_params)
-		redirect_to @intern, notice: 'Especialidade criada'
+		redirect_to @intern, notice: 'Estágio de especialidade criado'
 	end
 
 	def edit
@@ -14,7 +17,7 @@ class InternshipsController < ApplicationController
 		@internship = @intern.internships.find(params[:id])
 
 		if @internship.update_attributes(internship_params)
-			redirect_to @intern, notice: "Especilidade alterada"
+			redirect_to @intern, notice: "Estágio de especilidade alterado"
 		else
 			render 'edit'
 		end

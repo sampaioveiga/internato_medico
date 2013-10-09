@@ -1,0 +1,23 @@
+<% unless @intern.firstyear.fyprimary.nil? %>
+	<legend>C. Primários</legend>
+
+	<dl>
+		<dt>Orientador</dt>
+		<% unless @intern.firstyear.fyprimary.nil? %>
+			<dd><%= @intern.firstyear.fyprimary.supervisor.nome %></dd>
+		<% else %>
+			<dd></dd>
+		<% end %>
+		<dt>Data Início</dt>
+		<dd><%= @intern.firstyear.fyprimary.data_inicio %></dd>
+		<dt>Data Fim</dt>
+		<dd><%= @intern.firstyear.fyprimary.data_fim %></dd>
+		<dt>Nota</dt>
+		<dd><%= @intern.firstyear.fyprimary.nota %></dd>
+	</dl>
+	
+	<%= link_to "Editar", edit_intern_firstyear_fyprimary_path(@intern, @intern.firstyear, @intern.firstyear.fyprimary), class: 'btn' %>
+	<%= link_to "Eliminar", [@intern, @intern.firstyear, @intern.firstyear.fyprimary], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %><br />
+<% else %>
+	<%= link_to "C. Primários", new_intern_firstyear_fyprimary_path(@intern, @intern.firstyear), class: 'btn' %>
+<% end %>

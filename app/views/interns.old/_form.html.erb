@@ -1,0 +1,30 @@
+<%= form_for(@intern) do |f| %>
+  <% if @intern.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@intern.errors.count, "error") %> prohibited this intern from being saved:</h2>
+
+      <ul>
+      <% @intern.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+    <%= f.label :numero_mecanografico %>
+    <%= f.text_field :numero_mecanografico %>
+    <%= f.label :cedula_profissional %>
+    <%= f.text_field :cedula_profissional %>
+    <%= f.label :telefone %>
+    <%= f.text_field :telefone %>
+    <%= f.label :telemovel %>
+    <%= f.text_field :telemovel %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </fieldset>
+  <%= f.submit "Guardar", class: 'btn btn-success' %>
+  <%= link_to "Cancelar", interns_path, class: 'btn' %>
+<% end %>
