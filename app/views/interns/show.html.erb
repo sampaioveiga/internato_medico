@@ -2,7 +2,7 @@
 
 <div class="span10 offset1">
 	<div class="row-fluid">
-		<div class="span8">
+		<div class="span6">
 			<h1 class="text-left"><%= @intern.nome %></h1>
 			<%= link_to 'Editar', edit_intern_path(@intern), class: 'btn btn-mini' %>
 			<%= link_to 'Eliminar', @intern, method: :delete, data: { confirm: 'Tem a certeza?' }, class: 'btn  btn-mini btn-danger' %>
@@ -11,7 +11,7 @@
 			<% end %>
 			<%= link_to 'Especialidade', new_intern_internship_path(@intern), class: 'btn btn-mini' %>
 		</div>   
-		<div class="span4"> 
+		<div class="span6"> 
 			<dl class="dl-horizontal">
 				<dt>N. mecanográfico:</dt>
 				<dd><%= @intern.numero_mecanografico %><dd>

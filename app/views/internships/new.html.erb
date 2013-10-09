@@ -7,11 +7,11 @@
 			<legend>Novo Estágio de Especialidade</legend>
 			<%= f.text_field :nome, placeholder: 'Designação' %>
 			<%= f.label :supervisor_id, "Orientador" %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
+			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
 			<%= f.label :healthcareunit_id, "Unidade de Saúde" %>
-			<%= f.collection_select :healthcareunit_id, Healthcareunit.all, :id, :nome, include_blank: true %>
+			<%= f.collection_select :healthcareunit_id, Healthcareunit.all, :id, :nome %>
 			<%= f.label :service_id, "Serviço" %>
-			<%= f.collection_select :service_id, Service.all, :id, :nome, include_blank: true %>
+			<%= f.collection_select :service_id, Service.all, :id, :nome %>
 			<%= f.text_field :estado, placeholder: 'Estado' %>
 			<%= f.label :data_inicio, "Data início" %>
 			<%= f.date_select :data_inicio %>

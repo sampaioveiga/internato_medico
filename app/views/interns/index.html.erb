@@ -1,10 +1,10 @@
 <% provide(:title, "Lista de Internos") %>
 
 <div class="span10 offset1">
+    <%= render 'searchform' %>
 	<h1>Lista de Internos</h1>
-	<div class="actions">
-        <%= link_to 'Novo Interno', new_intern_path, class: 'btn' %>
-    </div>
+	<%= link_to 'Novo Interno', new_intern_path, class: 'btn' %>
+    <%= will_paginate @interns %>
     <table class="table">
         <thead>
             <tr>
@@ -28,4 +28,5 @@
             <% end %>
         </tbody>
     </table>
+    <%= will_paginate @interns %>
 </div>

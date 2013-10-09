@@ -5,6 +5,7 @@ InternatoMedico::Application.routes.draw do
   resources :organizations,   except: [ :show, :destroy ]
   resources :supervisors,     except: [ :show, :destroy ]
   resources :fyoptions,       except: [ :show, :destroy ]
+  get 'interns/search' => 'interns#search'
   resources :interns do
     resources :internships
     resources :firstyears do

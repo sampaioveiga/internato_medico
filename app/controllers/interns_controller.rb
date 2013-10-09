@@ -4,7 +4,7 @@ class InternsController < ApplicationController
   # GET /interns
   # GET /interns.json
   def index
-    @interns = Intern.order('nome')
+    @interns = Intern.paginate(page: params[:page]).order('nome')
   end
 
   # GET /interns/1
@@ -60,6 +60,11 @@ class InternsController < ApplicationController
       format.html { redirect_to interns_url, notice: 'Interno eliminado' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @interns = Intern.where("nome LIKE :prefix", prefix: "%#{params[:search_string]}%").paginate(page: params[:page])
+    render 'index'
   end
 
   private
