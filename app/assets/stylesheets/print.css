@@ -2,12 +2,11 @@
 	a[href]:after {
 		content: none;
 	}
-	.btn {
+
+	.navbar, .navbar-inner {
 		display: none;
 	}
-	.navbar {
-		display: none;
-	}
+
 	body {
 		padding-top:0;
 	}

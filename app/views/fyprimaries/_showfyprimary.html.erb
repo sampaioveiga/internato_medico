@@ -1,6 +1,6 @@
 <tr>
 	<% unless @intern.firstyear.fyprimary.nil? %>
-		<th><%= link_to "Primários", edit_intern_firstyear_fyprimary_path(@intern, @intern.firstyear, @intern.firstyear.fyprimary) %></th>
+		<th><%= link_to "Primários", edit_intern_firstyear_fyprimary_path(@intern, @intern.firstyear, @intern.firstyear.fyprimary), class: 'btn btn-link btn-small' %></th>
 		<td><%= @intern.firstyear.fyprimary.supervisor.nome %></td>
 		<td><%= @intern.firstyear.fyprimary.data_inicio %></td>
 		<td><%= @intern.firstyear.fyprimary.data_fim %></td>

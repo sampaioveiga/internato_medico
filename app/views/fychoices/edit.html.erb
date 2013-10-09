@@ -17,6 +17,7 @@
 			<%= f.label :nota %>
 			<%= f.text_field :nota %>
 		</fieldset>
-		<%= f.submit 'Guardar', class: 'btn btn-success' %>		
+		<%= f.submit 'Guardar', class: 'btn btn-success' %>
+		<%= link_to "Voltar", @intern, class: 'btn' %>
 	<% end %>
 </div>

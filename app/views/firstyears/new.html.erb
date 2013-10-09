@@ -5,8 +5,11 @@
 	<%= form_for([@intern, @intern.build_firstyear]) do |f| %>
 		<fieldset>
 			<legend>Novo Ano Comum</legend>
+			<%= f.label :ano %>
 			<%= f.text_field :ano, placeholder: 'Ano' %>
-			<%= f.text_field :local, placeholder: 'Local' %>
+			<%= f.label :local %>
+			<%= f.text_field :local, placeholder: 'Local', value: 'ULS Nordeste' %>
+			<%= f.label :observacoes, "Observações" %>
 			<%= f.text_area :observacoes, placeholder: 'Observações' %>
 		</fieldset>
 		<%= f.submit 'Guardar', class: 'btn btn-success' %>

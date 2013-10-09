@@ -7,14 +7,15 @@
 		<fieldset>
 			<legend>Editar Cirurgia</legend>
 			<%= f.label :supervisor_id, "Orientador" %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome %>
-			<%= f.label :data_inicio %>
+			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome %>
+			<%= f.label :data_inicio, "Data início" %>
 			<%= f.date_select :data_inicio %>
 			<%= f.label :data_fim %>
 			<%= f.date_select :data_fim %>
 			<%= f.label :nota %>
 			<%= f.text_field :nota %>
 		</fieldset>
-		<%= f.submit 'Guardar', class: 'btn btn-success' %>		
+		<%= f.submit 'Guardar', class: 'btn btn-success' %>
+		<%= link_to "Voltar", @intern, class: 'btn' %>
 	<% end %>
 </div>

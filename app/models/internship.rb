@@ -3,4 +3,7 @@ class Internship < ActiveRecord::Base
   belongs_to :supervisor
   belongs_to :healthcareunit
   belongs_to :service
+
+  validates :nome, 
+		presence: true
 end

@@ -5,19 +5,23 @@
 	<%= form_for([@intern, @internship]) do |f| %>
 		<fieldset>
 			<legend>Editar <%= @internship.nome %></legend>
+			<%= f.label :nome, "Designação" %>
 			<%= f.text_field :nome, placeholder: 'Designação' %>
 			<%= f.label :supervisor_id, "Orientador" %>
-			<%= f.collection_select :supervisor_id, Supervisor.all, :id, :nome, include_blank: true %>
+			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome %>
 			<%= f.label :healthcareunit_id, "Unidade de Saúde" %>
-			<%= f.collection_select :healthcareunit_id, Healthcareunit.all, :id, :nome, include_blank: true %>
+			<%= f.collection_select :healthcareunit_id, Healthcareunit.order('nome'), :id, :nome %>
 			<%= f.label :service_id, "Serviço" %>
-			<%= f.collection_select :service_id, Service.all, :id, :nome, include_blank: true %>
-			<%= f.text_field :estado, placeholder: 'Estado' %>
+			<%= f.collection_select :service_id, Service.order('nome'), :id, :nome %>
+			<%= f.label :estado %>
+			<%= f.select :estado, options_for_select(["Pedido", "Aceite", "Recusado", "Alterado"], @internship.estado) %>
 			<%= f.label :data_inicio, "Data início" %>
 			<%= f.date_select :data_inicio %>
 			<%= f.label :data_fim %>
 			<%= f.date_select :data_fim %>
+			<%= f.label :nota %>
 			<%= f.text_field :nota, placeholder: 'Nota' %>
+			<%= f.label :observacoes,'Observações' %>
 			<%= f.text_area :observacoes, placeholder: 'Observações' %>
 		</fieldset>
 		<%= f.submit "Guardar", class: 'btn btn-success' %>
