@@ -29,11 +29,10 @@ class InternsController < ApplicationController
 
     respond_to do |format|
       if @intern.save
-        format.html { redirect_to @intern, notice: 'Interno criado' }
-        format.json { render action: 'show', status: :created, location: @intern }
+        flash[:success] = 'Novo interno criado'
+        format.html { redirect_to @intern }
       else
         format.html { render action: 'new' }
-        format.json { render json: @intern.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,11 +42,10 @@ class InternsController < ApplicationController
   def update
     respond_to do |format|
       if @intern.update(intern_params)
-        format.html { redirect_to @intern, notice: 'Interno atualizado' }
-        format.json { head :no_content }
+        flash[:success] = 'Interno atualizado'
+        format.html { redirect_to @intern }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @intern.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,8 +55,8 @@ class InternsController < ApplicationController
   def destroy
     @intern.destroy
     respond_to do |format|
-      format.html { redirect_to interns_url, notice: 'Interno eliminado' }
-      format.json { head :no_content }
+      flash[:error] = 'Interno eliminado'
+      format.html { redirect_to interns_url }
     end
   end
 

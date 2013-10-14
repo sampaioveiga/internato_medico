@@ -15,7 +15,4 @@ class Intern < ActiveRecord::Base
   	validates :email,
 		format: { with: VALID_EMAIL_REGEX }, 
   		uniqueness: { case_sensitive: false }
-	validates_associated :firstyear,
-		presence: true,
-		length: { is: 4 }
 end

@@ -28,11 +28,10 @@ class HealthcareunitsController < ApplicationController
 
     respond_to do |format|
       if @healthcareunit.save
-        format.html { redirect_to healthcareunits_path, notice: 'Unidade de saúde criada.' }
-        format.json { render action: 'show', status: :created, location: @healthcareunit }
+        flash[:success] = 'Nova unidade de saúde criada'
+        format.html { redirect_to healthcareunits_path }
       else
         format.html { render action: 'new' }
-        format.json { render json: @healthcareunit.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +41,10 @@ class HealthcareunitsController < ApplicationController
   def update
     respond_to do |format|
       if @healthcareunit.update(healthcareunit_params)
-        format.html { redirect_to healthcareunits_path, notice: 'Unidade de saúde atualizada.' }
-        format.json { head :no_content }
+        flash[:success] = 'Unidade de saúde atualizada'
+        format.html { redirect_to healthcareunits_path }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @healthcareunit.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +55,6 @@ class HealthcareunitsController < ApplicationController
     @healthcareunit.destroy
     respond_to do |format|
       format.html { redirect_to healthcareunits_url }
-      format.json { head :no_content }
     end
   end
 

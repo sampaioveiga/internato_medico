@@ -14,7 +14,8 @@ class FirstyearsController < ApplicationController
 
 	def update
 		if @intern.firstyear.update_attributes(firstyear_params)
-			redirect_to @intern, notice: 'Ano Comum atualizado'
+			flash[:success] = 'Ano comum atualizado'
+			redirect_to @intern
 		else
 			render 'edit'
 		end
@@ -22,7 +23,7 @@ class FirstyearsController < ApplicationController
 
 	def destroy
 		@intern.firstyear.destroy
-
+		flash[:error] = 'Ano comum eliminado'
 		redirect_to @intern
 	end
 

@@ -28,11 +28,10 @@ class SupervisorsController < ApplicationController
 
     respond_to do |format|
       if @supervisor.save
-        format.html { redirect_to supervisors_path, notice: 'Orientador criado' }
-        format.json { render action: 'show', status: :created, location: @supervisor }
+        flash[:success] = 'Novo orientador criado'
+        format.html { redirect_to supervisors_path }
       else
         format.html { render action: 'new' }
-        format.json { render json: @supervisor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +41,10 @@ class SupervisorsController < ApplicationController
   def update
     respond_to do |format|
       if @supervisor.update(supervisor_params)
-        format.html { redirect_to supervisors_path, notice: 'Orientador atualizado' }
-        format.json { head :no_content }
+        flash[:success] = 'Orientador atualizado'
+        format.html { redirect_to supervisors_path }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @supervisor.errors, status: :unprocessable_entity }
       end
     end
   end

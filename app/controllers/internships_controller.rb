@@ -6,7 +6,8 @@ class InternshipsController < ApplicationController
 
 	def create
 		@internship = @intern.internships.create(internship_params)
-		redirect_to @intern, notice: 'Estágio de especialidade criado'
+		flash[:success] = 'Novo estágio de especialidade criado'
+		redirect_to @intern
 	end
 
 	def edit
@@ -17,7 +18,8 @@ class InternshipsController < ApplicationController
 		@internship = @intern.internships.find(params[:id])
 
 		if @internship.update_attributes(internship_params)
-			redirect_to @intern, notice: "Estágio de especilidade alterado"
+			flash[:success] = 'Estágio de especialidade atualizado'
+			redirect_to @intern
 		else
 			render 'edit'
 		end
@@ -26,6 +28,7 @@ class InternshipsController < ApplicationController
 	def destroy
 		@internship = @intern.internships.find(params[:id])
 		@internship.destroy
+		flash[:error] = 'Estágio de especialidade eliminado'
 		redirect_to @intern
 	end
 

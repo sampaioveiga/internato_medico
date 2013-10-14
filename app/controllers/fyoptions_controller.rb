@@ -28,11 +28,10 @@ class FyoptionsController < ApplicationController
 
     respond_to do |format|
       if @fyoption.save
-        format.html { redirect_to fyoptions_path, notice: 'Opção Ano Comum criada' }
-        format.json { render action: 'show', status: :created, location: @fyoption }
+        flash[:success] = 'Nova opção de ano comum criada'
+        format.html { redirect_to fyoptions_path }
       else
         format.html { render action: 'new' }
-        format.json { render json: @fyoption.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +41,10 @@ class FyoptionsController < ApplicationController
   def update
     respond_to do |format|
       if @fyoption.update(fyoption_params)
-        format.html { redirect_to fyoptions_path, notice: 'Opção Ano Comum atualizada' }
-        format.json { head :no_content }
+        flash[:success] = 'Opção de ano comum atualizada'
+        format.html { redirect_to fyoptions_path }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @fyoption.errors, status: :unprocessable_entity }
       end
     end
   end
