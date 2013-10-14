@@ -1,12 +1,12 @@
 <% provide(:title, "Editar Estágio de Especialidade") %>
 
-<div class="span8 offset2">
-	<h1><%= @intern.nome %></h1>
+<h1><%= @intern.nome %></h1>
+<div class="span6 offset3">
 	<%= form_for([@intern, @internship]) do |f| %>
 		<fieldset>
 			<legend>Editar <%= @internship.nome %></legend>
-			<%= f.label :nome, "Designação" %>
-			<%= f.text_field :nome, placeholder: 'Designação' %>
+			<%= f.label :nome, "Nome do estágio" %>
+			<%= f.text_field :nome, placeholder: 'Nome do estágio' %>
 			<%= f.label :supervisor_id, "Orientador" %>
 			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome %>
 			<%= f.label :healthcareunit_id, "Unidade de Saúde" %>

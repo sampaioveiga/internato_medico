@@ -1,14 +1,15 @@
 <% provide(:title, "Orientadores") %>
 
-<div class="span10 offset1">
-    <h1>Orientadores</h1>
+<h1>Orientadores</h1>
+<div class="span8 offset2">
     <div class="actions">
-        <%= link_to 'Novo Orientador', new_supervisor_path, class: 'btn' %>
+        <%= link_to 'Novo Orientador', new_supervisor_path, class: 'btn btn-primary' %>
     </div>
     <table class="table">
         <thead>
             <tr>
                 <th>Nome</th>
+                <th>Cédula</th>
                 <th>Especialidade</th>
                 <th>Telefone</th>
                 <th>Telemóvel</th>
@@ -20,6 +21,7 @@
             <% @supervisors.each do |supervisor| %>
                 <tr>
                     <td><%= link_to supervisor.nome, edit_supervisor_path(supervisor) %></td>
+                    <td><%= supervisor.cedula_profissional %></td>
                     <td><%= supervisor.especialidade %></td>
                     <td><%= supervisor.telefone %></td>
                     <td><%= supervisor.telemovel %></td>

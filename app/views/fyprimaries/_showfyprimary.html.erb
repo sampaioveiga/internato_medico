@@ -1,11 +1,12 @@
 <tr>
 	<% unless @intern.firstyear.fyprimary.nil? %>
-		<th><%= link_to "Primários", edit_intern_firstyear_fyprimary_path(@intern, @intern.firstyear, @intern.firstyear.fyprimary), class: 'btn btn-link btn-small' %></th>
+		<td><%= link_to "Primários", edit_intern_firstyear_fyprimary_path(@intern, @intern.firstyear, @intern.firstyear.fyprimary) %></td>
+		<td><%= @intern.firstyear.fyprimary.healthcareunit.nome %></td>
 		<td><%= @intern.firstyear.fyprimary.supervisor.nome %></td>
 		<td><%= @intern.firstyear.fyprimary.data_inicio %></td>
 		<td><%= @intern.firstyear.fyprimary.data_fim %></td>
 		<td><%= @intern.firstyear.fyprimary.nota %></td>
 	<% else %>
-		<%= link_to "Cuidados Primários", new_intern_firstyear_fyprimary_path(@intern, @intern.firstyear), class: 'btn' %>
+		<%= link_to "Cuidados Primários", new_intern_firstyear_fyprimary_path(@intern, @intern.firstyear), class: 'btn btn-primary' %>
 	<% end %>
 </tr>

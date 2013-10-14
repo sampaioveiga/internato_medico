@@ -1,11 +1,10 @@
 InternatoMedico::Application.routes.draw do
-  root 'interns#index'  
+  
   resources :healthcareunits, except: [ :show, :destroy ]
   resources :services,        except: [ :show, :destroy ]
   resources :organizations,   except: [ :show, :destroy ]
   resources :supervisors,     except: [ :show, :destroy ]
   resources :fyoptions,       except: [ :show, :destroy ]
-  get 'interns/search' => 'interns#search'
   resources :interns do
     resources :internships
     resources :firstyears do
@@ -16,6 +15,8 @@ InternatoMedico::Application.routes.draw do
       resources :fychoices
     end
   end
+  match '/search', to: 'interns#search', via: 'get'
+  root 'interns#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

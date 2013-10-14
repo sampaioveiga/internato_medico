@@ -69,6 +69,6 @@ class SupervisorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supervisor_params
-      params.require(:supervisor).permit(:nome, :especialidade, :telefone, :telemovel, :email)
+      params.require(:supervisor).permit(:nome, :cedula_profissional, :especialidade, :telefone, :telemovel, :email)
     end
 end

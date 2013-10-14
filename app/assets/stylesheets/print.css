@@ -10,4 +10,7 @@
 	body {
 		padding-top:0;
 	}
+	.btn {
+		display: none;
+	}
 }

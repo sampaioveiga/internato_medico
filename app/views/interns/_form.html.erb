@@ -1,7 +1,7 @@
 <%= form_for(@intern) do |f| %>
   <% if @intern.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@intern.errors.count, "error") %> prohibited this intern from being saved:</h2>
+      <h2><%= pluralize(@intern.errors.count, "error") %> inpediram este registo de ser guardado:</h2>
 
       <ul>
       <% @intern.errors.full_messages.each do |msg| %>
@@ -24,6 +24,10 @@
     <%= f.text_field :telemovel %>
     <%= f.label :email %>
     <%= f.text_field :email %>
+    <%= f.label :nota_media %>
+    <%= f.text_field :nota_media %>
+    <%= f.label :nota_final_exame %>
+    <%= f.text_field :nota_final_exame %>
   </fieldset>
   <%= f.submit "Guardar", class: 'btn btn-success' %>
   <%= link_to "Cancelar", interns_path, class: 'btn' %>

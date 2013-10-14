@@ -1,9 +1,9 @@
 <% provide(:title, "Lista de Internos") %>
 
+<h1>Lista de Internos</h1>
 <div class="span10 offset1">
     <%= render 'searchform' %>
-	<h1>Lista de Internos</h1>
-	<%= link_to 'Novo Interno', new_intern_path, class: 'btn' %>
+	<%= link_to 'Novo Interno', new_intern_path, class: 'btn btn-primary' %>
     <%= will_paginate @interns %>
     <table class="table">
         <thead>
@@ -15,7 +15,6 @@
                 <th>E-mail</th>
             </tr>
         </thead>
-
         <tbody>
             <% @interns.each do |intern| %>
                 <tr>

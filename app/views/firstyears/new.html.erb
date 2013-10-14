@@ -1,7 +1,7 @@
 <% provide(:title, "Novo Ano Comum") %>
 
-<div class="span8 offset2">
-	<h1><%= @intern.nome %></h1>
+<h1><%= @intern.nome %></h1>
+<div class="span6 offset3">
 	<%= form_for([@intern, @intern.build_firstyear]) do |f| %>
 		<fieldset>
 			<legend>Novo Ano Comum</legend>

@@ -1,19 +1,18 @@
 <% provide(:title, "Editar Ano Comum") %>
 
-<div class="span8 offset2">
 <h1><%= @intern.nome %></h1>
-
-<%= form_for([@intern, @intern.firstyear]) do |f| %>
-	<fieldset>
-		<legend>Editar Ano Comum</legend>
-		<%= f.label :ano %>
-		<%= f.text_field :ano %>
-		<%= f.label :local %>
-		<%= f.text_field :local %>
-		<%= f.label :observacoes, "Observações" %>
-		<%= f.text_area :observacoes %>
-	</fieldset>
-	<%= f.submit 'Guardar', class: 'btn btn-success' %>
-	<%= link_to "Voltar", @intern, class: 'btn' %>
-<% end %>
+<div class="span6 offset3">
+	<%= form_for([@intern, @intern.firstyear]) do |f| %>
+		<fieldset>
+			<legend>Editar Ano Comum</legend>
+			<%= f.label :ano %>
+			<%= f.text_field :ano %>
+			<%= f.label :local %>
+			<%= f.text_field :local %>
+			<%= f.label :observacoes, "Observações" %>
+			<%= f.text_area :observacoes %>
+		</fieldset>
+		<%= f.submit 'Guardar', class: 'btn btn-success' %>
+		<%= link_to "Voltar", @intern, class: 'btn' %>
+	<% end %>
 </div>

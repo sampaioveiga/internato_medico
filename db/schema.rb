@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927090822) do
+ActiveRecord::Schema.define(version: 20131014105447) do
 
   create_table "firstyears", force: true do |t|
     t.integer  "intern_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20130927090822) do
     t.integer  "fyoption_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "healthcareunit_id"
   end
 
   add_index "fychoices", ["firstyear_id"], name: "index_fychoices_on_firstyear_id"
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20130927090822) do
     t.integer  "nota"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "healthcareunit_id"
   end
 
   add_index "fycirurgies", ["firstyear_id"], name: "index_fycirurgies_on_firstyear_id"
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 20130927090822) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "nota"
+    t.integer  "healthcareunit_id"
   end
 
   add_index "fymedicines", ["firstyear_id"], name: "index_fymedicines_on_firstyear_id"
@@ -79,6 +82,7 @@ ActiveRecord::Schema.define(version: 20130927090822) do
     t.integer  "nota"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "healthcareunit_id"
   end
 
   add_index "fypediatries", ["firstyear_id"], name: "index_fypediatries_on_firstyear_id"
@@ -92,6 +96,7 @@ ActiveRecord::Schema.define(version: 20130927090822) do
     t.integer  "nota"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "healthcareunit_id"
   end
 
   add_index "fyprimaries", ["firstyear_id"], name: "index_fyprimaries_on_firstyear_id"
@@ -99,6 +104,14 @@ ActiveRecord::Schema.define(version: 20130927090822) do
 
   create_table "healthcareunits", force: true do |t|
     t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "identities", force: true do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -112,6 +125,8 @@ ActiveRecord::Schema.define(version: 20130927090822) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cedula_profissional"
+    t.integer  "nota_media"
+    t.integer  "nota_final_exame"
   end
 
   create_table "internships", force: true do |t|
@@ -147,6 +162,19 @@ ActiveRecord::Schema.define(version: 20130927090822) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cedula_profissional"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "remember_token"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

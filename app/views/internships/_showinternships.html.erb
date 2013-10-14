@@ -1,34 +1,40 @@
-<% @internships.each do |internship| %>
-	<div class="row-fluid well">
-		<div class="span4">
-			<h2><%= internship.nome %></h2>
-			<dl>
-				<dt>Estado</dt>
-				<dd><%= internship.estado %></dd>
-				<dt>Nota</dt>
-				<dd><%= internship.nota %></dd>
-			</dl>
-			<%= link_to "Editar", edit_intern_internship_path(@intern, internship), class: 'btn btn-mini' %>
-			<%= link_to "Eliminar", [internship.intern, internship], method: :delete, data: { confirm: 'Tem a certeza?' }, class: 'btn btn-danger btn-mini' %>
+<div class="span12">
+	<% @internships.each do |internship| %>
+		<div class="row-fluid">
+			<div class="span10">
+				<h2>Estágio de especialidade de <%= internship.nome %></h2>
+			</div>
+			<div class="span2">
+				<%= link_to "Editar", edit_intern_internship_path(@intern, internship), class: 'btn btn-mini btn-block' %>
+				<%= link_to "Eliminar", [internship.intern, internship], method: :delete, data: { confirm: 'Tem a certeza?' }, class: 'btn btn-danger btn-mini btn-block' %>
+			</div>
 		</div>
-		<div class="span8">
-			<dl class="dl-horizontal">
-				<dt>Orientador</dt>
-				<dd><%= internship.supervisor.nome %></dd>
-				<dt>Unidade de Saúde</dt>
-				<dd><%= internship.healthcareunit.nome %></dd>
-				<dt>Serviço</dt>
-				<dd><%= internship.service.nome %></dd>
-				<dt>Data início</dt>
-				<dd><%= internship.data_inicio %></dd>
-				<dt>Data fim</dt>
-				<dd><%= internship.data_fim %></dd>
-				<dt>Observações </dt>
-				<dd><%= internship.observacoes %></dd>
-			</dl>
-		</div>
-		<div class="text-left">
-			
-		</div>
-	</div>
-<% end %>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Estado</th>
+					<th>Nota</th>
+					<th>Orientador</th>
+					<th>U. Saúde</th>
+					<th>Serviço</th>
+					<th>Data início</th>
+					<th>Data fim</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= internship.estado %></td>
+					<td><%= internship.nota %></td>
+					<td><%= internship.supervisor.nome %></td>
+					<td><%= internship.healthcareunit.nome %></td>
+					<td><%= internship.service.nome %></td>
+					<td><%= internship.data_inicio %></td>
+					<td><%= internship.data_fim %></td>
+				</tr>
+				<tr>
+					<td colspan="7"><%= internship.observacoes %></td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+</div>

@@ -10,6 +10,8 @@ class Intern < ActiveRecord::Base
   		presence: true,
   		numericality: true,
   		length: { is: 5 }
+  	validates :cedula_profissional,
+  		presence: true
   	validates :email,
 		format: { with: VALID_EMAIL_REGEX }, 
   		uniqueness: { case_sensitive: false }

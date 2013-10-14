@@ -1,11 +1,13 @@
 <% provide(:title, @intern.nome) %>
-<div class="span8 offset2">
-	<h1><%= @intern.nome %></h1>
-	<h2>Ano Comun</h2>
 
+<h1><%= @intern.nome %></h1>
+<h2>Ano Comun</h2>
+<div class="span6 offset3">
 	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.build_fymedicine]) do |f| %>
 		<fieldset>
 			<legend>Medicina</legend>
+			<%= f.label :healthcareunit_id, "Unidade de Saúde" %>
+			<%= f.collection_select :healthcareunit_id, Healthcareunit.order('nome'), :id, :nome %>
 			<%= f.label :supervisor_id, "Orientador" %>
 			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome %>
 			<%= f.label :data_inicio, "Data início" %>

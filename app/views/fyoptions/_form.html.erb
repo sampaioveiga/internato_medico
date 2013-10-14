@@ -1,7 +1,7 @@
 <%= form_for(@fyoption) do |f| %>
   <% if @fyoption.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@fyoption.errors.count, "error") %> prohibited this fyoption from being saved:</h2>
+      <h2><%= pluralize(@fyoption.errors.count, "error") %> impediram este registo de ser guardado:</h2>
 
       <ul>
       <% @fyoption.errors.full_messages.each do |msg| %>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+    <%= f.label :nome %>
+    <%= f.text_field :nome, placeholder: 'Nome' %>
   </div>
   <div class="actions">
     <%= f.submit 'Guardar', class: 'btn btn-success' %>

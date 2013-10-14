@@ -1,22 +1,20 @@
-<div class="row-fluid well">
-	<div class="span3">
-		<h2>Ano Comum</h2>
-		<dl>
-			<dt>Ano</dt>
-			<dd><%= @intern.firstyear.ano %></dd>
-			<dt>Local</dt>
-			<dd><%= @intern.firstyear.local %></dd>
-			<dt>Observações</dt>
-			<dd><%= @intern.firstyear.observacoes %></dd>
-		</dl>
-		<%= link_to 'Editar', edit_intern_firstyear_path(@intern, @intern.firstyear), class: 'btn btn-mini' %>
-		<%= link_to 'Eliminar', [@intern, @intern.firstyear], confirm: 'Eliminar Ano Comum?', method: :delete, class: 'btn btn-mini btn-danger' %>
-	</div>
-	<div class="span9">
-		<table class="table">
+<div class="span3">
+	<h2>Ano Comum</h2>
+	<dl>
+		<dt>Ano</dt>
+		<dd><%= @intern.firstyear.ano %></dd>
+		<dt>Local</dt>
+		<dd><%= @intern.firstyear.local %></dd>
+	</dl>
+	<%= link_to 'Editar', edit_intern_firstyear_path(@intern, @intern.firstyear), class: 'btn btn-mini btn-block' %>
+	<%= link_to 'Eliminar', [@intern, @intern.firstyear], confirm: 'Eliminar Ano Comum?', method: :delete, class: 'btn btn-mini btn-block btn-danger' %>
+</div>
+<div class="span9">
+	<table class="table">
 		<thead>
 			<tr>
 				<th></th>
+				<th>U. saúde</th>
 				<th>Orientador</th>
 				<th>Data início</th>
 				<th>Data fim</th>
@@ -29,7 +27,9 @@
 			<%= render 'fycirurgies/showfycirurgy' %>
 			<%= render 'fypediatries/showfypediatry' %>
 			<%= render 'fychoices/showfychoice' %>
+			<tr>
+				<td colspan="6"><%= @intern.firstyear.observacoes %></td>
+			</tr>
 		</tbody>
 	</table>
-	</div>
 </div>

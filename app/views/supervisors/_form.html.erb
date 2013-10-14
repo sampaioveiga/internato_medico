@@ -1,7 +1,7 @@
 <%= form_for(@supervisor) do |f| %>
   <% if @supervisor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@supervisor.errors.count, "error") %> prohibited this supervisor from being saved:</h2>
+      <h2><%= pluralize(@supervisor.errors.count, "error") %> impediram este registo de ser guardado:</h2>
 
       <ul>
       <% @supervisor.errors.full_messages.each do |msg| %>
@@ -14,6 +14,8 @@
   <fieldset>
     <%= f.label :nome %>
     <%= f.text_field :nome %>
+    <%= f.label :cedula_profissional %>
+    <%= f.text_field :cedula_profissional %>
     <%= f.label :especialidade %>
     <%= f.text_field :especialidade %>
     <%= f.label :telefone %>

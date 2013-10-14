@@ -28,6 +28,6 @@ class FychoicesController < ApplicationController
 		end
 
 		def fychoice_params
-			params.require(:fychoice).permit(:data_inicio, :data_fim, :supervisor_id, :nota, :fyoption_id)
+			params.require(:fychoice).permit(:data_inicio, :data_fim, :supervisor_id, :nota, :fyoption_id, :healthcareunit_id)
 		end
 end

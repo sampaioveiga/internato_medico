@@ -28,6 +28,6 @@ class FypediatriesController < ApplicationController
 		end
 
 		def fypediatry_params
-			params.require(:fypediatry).permit(:data_inicio, :data_fim, :supervisor_id, :nota)
+			params.require(:fypediatry).permit(:data_inicio, :data_fim, :supervisor_id, :nota, :healthcareunit_id)
 		end
 end
