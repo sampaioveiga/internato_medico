@@ -1,5 +1,6 @@
 class FyprimariesController < ApplicationController
 	before_action :load_intern
+	before_action :require_login
 
 	def create
 		@intern.firstyear.create_fyprimary(fyprimary_params)
@@ -30,4 +31,14 @@ class FyprimariesController < ApplicationController
 		def fyprimary_params
 			params.require(:fyprimary).permit(:data_inicio, :data_fim, :supervisor_id, :nota, :healthcareunit_id)
 		end
+
+		def require_login
+      		unless logged_in?
+          		redirect_to login_path
+      		end
+    	end
+
+    	def logged_in?
+      		!!current_user
+    	end
 end

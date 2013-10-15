@@ -1,5 +1,6 @@
 class FychoicesController < ApplicationController
 	before_action :load_intern
+	before_action :require_login
 
 	def create
 		@intern.firstyear.create_fychoice(fychoice_params)
@@ -30,4 +31,14 @@ class FychoicesController < ApplicationController
 		def fychoice_params
 			params.require(:fychoice).permit(:data_inicio, :data_fim, :supervisor_id, :nota, :fyoption_id, :healthcareunit_id)
 		end
+
+		def require_login
+      		unless logged_in?
+          		redirect_to login_path
+      		end
+    	end
+
+    	def logged_in?
+      		!!current_user
+    	end
 end

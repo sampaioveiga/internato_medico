@@ -1,5 +1,6 @@
 class SupervisorsController < ApplicationController
   before_action :set_supervisor, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /supervisors
   # GET /supervisors.json
@@ -68,5 +69,15 @@ class SupervisorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def supervisor_params
       params.require(:supervisor).permit(:nome, :cedula_profissional, :especialidade, :telefone, :telemovel, :email)
+    end
+
+    def require_login
+      unless logged_in?
+        redirect_to login_path
+      end
+    end
+
+    def logged_in?
+      !!current_user
     end
 end

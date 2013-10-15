@@ -1,5 +1,6 @@
 class FirstyearsController < ApplicationController
 	before_action :load_intern
+	before_action :require_login
 
 	def show
 	end
@@ -35,4 +36,14 @@ class FirstyearsController < ApplicationController
 		def firstyear_params
 			params.require(:firstyear).permit(:ano, :local, :observacoes)
 		end
+
+		def require_login
+      		unless logged_in?
+        		redirect_to login_path
+      		end
+    	end
+
+    	def logged_in?
+      		!!current_user
+    	end
 end

@@ -1,5 +1,6 @@
 class FyoptionsController < ApplicationController
   before_action :set_fyoption, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /fyoptions
   # GET /fyoptions.json
@@ -68,5 +69,15 @@ class FyoptionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def fyoption_params
       params.require(:fyoption).permit(:nome)
+    end
+
+    def require_login
+      unless logged_in?
+        redirect_to login_path
+      end
+    end
+
+    def logged_in?
+      !!current_user
     end
 end

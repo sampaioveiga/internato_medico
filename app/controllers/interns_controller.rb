@@ -1,5 +1,6 @@
 class InternsController < ApplicationController
   before_action :set_intern, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /interns
   # GET /interns.json
@@ -74,5 +75,15 @@ class InternsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def intern_params
       params.require(:intern).permit(:nome, :numero_mecanografico, :telefone, :telemovel, :email, :supervisor_id, :cedula_profissional, :nota_media, :nota_final_exame)
+    end
+
+    def require_login
+      unless logged_in?
+          redirect_to login_path
+      end
+    end
+
+    def logged_in?
+      !!current_user
     end
 end

@@ -1,5 +1,6 @@
 InternatoMedico::Application.routes.draw do
-  
+  resources :users,           except: [ :show, :destroy ]
+  resources :sessions,        except: [ :show ]
   resources :healthcareunits, except: [ :show, :destroy ]
   resources :services,        except: [ :show, :destroy ]
   resources :organizations,   except: [ :show, :destroy ]
@@ -15,7 +16,10 @@ InternatoMedico::Application.routes.draw do
       resources :fychoices
     end
   end
-  match '/search', to: 'interns#search', via: 'get'
+  match '/search',  to: 'interns#search',   via: 'get'
+  match '/login',   to: 'sessions#new',     via: 'get'
+  match '/logout',  to: 'sessions#destroy', via: 'get'
+  match '/signin',   to: 'users#new',        via: 'get'
   root 'interns#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

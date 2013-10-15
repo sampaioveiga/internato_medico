@@ -1,5 +1,6 @@
 class InternshipsController < ApplicationController
 	before_action :load_intern
+	before_action :require_login
 
 	def new
 	end
@@ -40,4 +41,14 @@ class InternshipsController < ApplicationController
 		def internship_params
 			params.require(:internship).permit(:nome, :supervisor_id, :healthcareunit_id, :service_id, :estado, :data_inicio, :data_fim, :nota, :observacoes)
 		end
+
+		def require_login
+      		unless logged_in?
+          		redirect_to login_path
+      		end
+    	end
+
+    	def logged_in?
+      		!!current_user
+    	end
 end
