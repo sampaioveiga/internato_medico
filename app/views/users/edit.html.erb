@@ -1,0 +1,25 @@
+<% provide(:title, "Editar #{@user.nome}") %>
+
+<h1>Editar <%= @user.nome %></h1>
+<div class="span6 offset3">
+	<%= form_for(@user) do |f| %>
+		<fieldset>
+			<%= f.label :nome %>
+			<%= f.text_field :nome %>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation %>
+			<%= f.label :status, "Autorização" %>
+			<%= f.check_box :status %>
+			<%= f.label :admin, "Administração" %>
+			<%= f.check_box :admin %>
+		</fieldset>
+		<div class="actions">
+			<%= f.submit "Guardar", class: 'btn btn-success' %>
+			<%= link_to "Cancelar", users_path, class: 'btn' %>
+		</div>
+	<% end %>
+</div>

@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
 
 	def create
 		user = User.find_by_email(params[:email])
-		if user && user.authenticate(params[:password])
+		if user && user.authenticate(params[:password]) && user.status
 			session[:user_id] = user.id
 			flash[:success] = "Bemvindo #{user.nome}"
 			redirect_to root_url
 		else
-			flash[:error] = "Credenciais erradas"
+			flash[:error] = "Credenciais inválidas"
 			render 'new'
 		end
 	end

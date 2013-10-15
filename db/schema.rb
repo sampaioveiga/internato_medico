@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131015092858) do
+ActiveRecord::Schema.define(version: 20131015130519) do
 
   create_table "firstyears", force: true do |t|
     t.integer  "intern_id"
@@ -171,6 +171,8 @@ ActiveRecord::Schema.define(version: 20131015092858) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nome"
+    t.boolean  "status"
+    t.boolean  "admin",           default: false
   end
 
 end

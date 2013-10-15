@@ -4,8 +4,8 @@
 <div class="span6 offset3">
 	<%= form_for @user do |f| %>
 		<% if @user.errors.any? %>
-			<div class="error_messages">
-				<h2>Form is invalid</h2>
+			<div class="error_explanation">
+				<h2><%= pluralize(@user.errors.count, "error") %> impediram este registo de ser guardado:</h2>
 				<ul>
 					<% for message in @user.errors.full_messages %>
 						<li><%= message %></li>
@@ -20,7 +20,7 @@
 			<%= f.text_field :email %>
 			<%= f.label :password %>
     		<%= f.password_field :password %>
-  			<%= f.label :password_confirmation %>
+  			<%= f.label :password_confirmation, "Confirme password" %>
     		<%= f.password_field :password_confirmation %>
   		</fieldset>
   		<div class="actions">
