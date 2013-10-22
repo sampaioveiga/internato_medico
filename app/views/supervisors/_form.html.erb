@@ -1,7 +1,7 @@
 <%= form_for(@supervisor) do |f| %>
   <% if @supervisor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@supervisor.errors.count, "error") %> impediram este registo de ser guardado:</h2>
+      <h2>O formulário tem<%= pluralize(@supervisor.errors.count, "erro") %></h2>
 
       <ul>
       <% @supervisor.errors.full_messages.each do |msg| %>

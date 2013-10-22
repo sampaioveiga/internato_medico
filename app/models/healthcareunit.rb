@@ -7,5 +7,5 @@ class Healthcareunit < ActiveRecord::Base
 	has_many :fychoices
 
 	validates :nome, 
-		presence: true
+		presence: { message: "não pode estar vazio" }
 end

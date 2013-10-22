@@ -5,7 +5,7 @@
 	<%= form_for @user do |f| %>
 		<% if @user.errors.any? %>
 			<div class="error_explanation">
-				<h2><%= pluralize(@user.errors.count, "error") %> impediram este registo de ser guardado:</h2>
+				<h2>O formulário tem <%= pluralize(@user.errors.count, "erro") %></h2>
 				<ul>
 					<% for message in @user.errors.full_messages %>
 						<li><%= message %></li>

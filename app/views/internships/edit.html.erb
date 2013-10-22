@@ -3,6 +3,16 @@
 <h1><%= @intern.nome %></h1>
 <div class="span6 offset3">
 	<%= form_for([@intern, @internship]) do |f| %>
+		<% if @internship.errors.any? %>
+			<div class="error_explanation">
+				<h2>O formulário tem <%= pluralize(@internship.errors.count, "error") %></h2>
+				<ul>
+					<% for message in @internship.errors.full_messages %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
 		<fieldset>
 			<legend>Editar <%= @internship.nome %></legend>
 			<%= f.label :nome, "Nome do estágio" %>
@@ -15,10 +25,20 @@
 			<%= f.collection_select :service_id, Service.order('nome'), :id, :nome %>
 			<%= f.label :estado %>
 			<%= f.select :estado, options_for_select(["Pedido", "Aceite", "Recusado", "Alterado"], @internship.estado) %>
-			<%= f.label :data_inicio, "Data início" %>
-			<%= f.date_select :data_inicio %>
+			<%= f.label :data_inicio %>
+			<div class="datetimepicker input-append date">
+				<%= f.text_field :data_inicio %>
+				<span class="add-on">
+      				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+    			</span>
+			</div>
 			<%= f.label :data_fim %>
-			<%= f.date_select :data_fim %>
+			<div class="datetimepicker input-append date">
+				<%= f.text_field :data_fim %>
+				<span class="add-on">
+      				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+    			</span>
+			</div>
 			<%= f.label :nota %>
 			<%= f.text_field :nota, placeholder: 'Nota' %>
 			<%= f.label :observacoes,'Observações' %>
@@ -28,3 +48,12 @@
 		<%= link_to "Voltar", @intern, class: 'btn' %>
 	<% end %>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.datetimepicker').datetimepicker({
+			format: 'yyyy-MM-dd',
+			pickTime: false
+		});
+	});
+</script>

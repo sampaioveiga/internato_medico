@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131015130519) do
+ActiveRecord::Schema.define(version: 20131022133030) do
 
   create_table "firstyears", force: true do |t|
     t.integer  "intern_id"
@@ -129,6 +129,9 @@ ActiveRecord::Schema.define(version: 20131015130519) do
     t.integer  "nota_final_exame"
   end
 
+  add_index "interns", ["cedula_profissional"], name: "index_interns_on_cedula_profissional", unique: true
+  add_index "interns", ["numero_mecanografico"], name: "index_interns_on_numero_mecanografico", unique: true
+
   create_table "internships", force: true do |t|
     t.string   "nome"
     t.integer  "supervisor_id"
@@ -164,6 +167,8 @@ ActiveRecord::Schema.define(version: 20131015130519) do
     t.datetime "updated_at"
     t.integer  "cedula_profissional"
   end
+
+  add_index "supervisors", ["cedula_profissional"], name: "index_supervisors_on_cedula_profissional", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email"

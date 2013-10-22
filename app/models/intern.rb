@@ -5,14 +5,16 @@ class Intern < ActiveRecord::Base
 	
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :nome, 
-		presence: true
+		presence: { message: "não pode estar em branco" }
   	validates :numero_mecanografico,
-  		presence: true,
-  		numericality: true,
-  		length: { is: 5 }
+  		presence: { message: "não pode estar em branco" },
+  		numericality: { message: "não pode conter texto" },
+  		length: { is: 5, message: "tem de ter 5 números" },
+  		uniqueness: { message: "já existe na base de dados" }
   	validates :cedula_profissional,
-  		presence: true
+  		presence: { message: "não pode estar em branco" },
+  		uniqueness: { message: "já existe na base de dados" }
   	validates :email,
-		format: { with: VALID_EMAIL_REGEX }, 
-  		uniqueness: { case_sensitive: false }
+        format: { with: VALID_EMAIL_REGEX, message: "tem de ter o formato 'alias@ulsne.min-saude.pt'" }, 
+  		uniqueness: { case_sensitive: false, message: "já existe na base de dados" }
 end

@@ -3,6 +3,16 @@
 <h1><%= @intern.nome %></h1>
 <div class="span6 offset3">
 	<%= form_for([@intern, @intern.firstyear]) do |f| %>
+		<% if @intern.firstyear.errors.any? %>
+			<div id="error_explanation">
+				<h2>O formulário tem <%= pluralize(@intern.firstyear.errors.count, "erro") %></h2>
+				<ul>
+					<% @intern.firstyear.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
 		<fieldset>
 			<legend>Editar Ano Comum</legend>
 			<%= f.label :ano %>

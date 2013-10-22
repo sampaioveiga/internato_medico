@@ -5,13 +5,13 @@ class User < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 	validates :nome,
-		presence: true
+		presence: { message: "não pode estar em branco" }
 	validates :password,
-		presence: true,
+		presence: { message: "não pode estar em branco" },
 		on: :create,
-		length: { minimum: 5 }
+		length: { minimum: 5, message: "tem de ter pelo menos 5 caracteres" }
 	validates :email,
-		presence: true,
-		uniqueness: { case_sensitive: false },
-		format: { with: VALID_EMAIL_REGEX }
+		presence: { message: "não pode estar em branco" },
+		uniqueness: { case_sensitive: false, message: "já existe na base de dados" },
+		format: { with: VALID_EMAIL_REGEX, message: "tem de ter o formato 'alias@ulsne.min-saude.pt'" }
 end

@@ -4,14 +4,14 @@ class Supervisor < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :nome, 
-		presence: true
+		presence: { message: "não pode estar em branco" }
 	validates :cedula_profissional,
-		presence: true,
-		uniqueness: true
+		presence: { message: "não pode estar em branco" },
+		uniqueness: { message: "já existe na base de dados" }
   	validates :especialidade,
-  		presence: true
+  		presence: { message: "não pode estar em branco" }
   	validates :email,
-		presence: true,
-		format: { with: VALID_EMAIL_REGEX }, 
-  		uniqueness: { case_sensitive: false }
+		presence: { message: "não pode estar em branco" },
+		format: { with: VALID_EMAIL_REGEX, message: "tem de ter o formato 'alias@ulsne.min-saude.pt'" }, 
+  		uniqueness: { case_sensitive: false, message: "já existe na base de dados" }
 end
