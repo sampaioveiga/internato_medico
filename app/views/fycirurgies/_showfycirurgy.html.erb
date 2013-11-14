@@ -2,7 +2,11 @@
 	<% unless @intern.firstyear.fycirurgy.nil? %>
 		<td><%= link_to "Cirurgia", edit_intern_firstyear_fycirurgy_path(@intern, @intern.firstyear, @intern.firstyear.fycirurgy) %></td>
 		<td><%= @intern.firstyear.fycirurgy.healthcareunit.nome %></td>
-		<td><%= @intern.firstyear.fycirurgy.supervisor.nome %></td>
+		<% unless @intern.firstyear.fycirurgy.supervisor.nil? %>
+			<td><%= @intern.firstyear.fycirurgy.supervisor.nome %></td>
+		<% else %>
+			<td>&nbsp;</td>
+		<% end %>
 		<td><%= @intern.firstyear.fycirurgy.data_inicio %></td>
 		<td><%= @intern.firstyear.fycirurgy.data_fim %></td>
 		<td><%= @intern.firstyear.fycirurgy.nota %></td>

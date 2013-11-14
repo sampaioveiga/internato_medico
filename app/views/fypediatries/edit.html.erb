@@ -9,11 +9,21 @@
 			<%= f.label :healthcareunit_id, "Unidade de sáude" %>
 			<%= f.collection_select :healthcareunit_id, Healthcareunit.order('nome'), :id, :nome %>
 			<%= f.label :supervisor_id, "Orientador" %>
-			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome %>
-			<%= f.label :data_inicio, "Data início" %>
-			<%= f.date_select :data_inicio %>
+			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome, include_blank: true %>
+			<%= f.label :data_inicio %>
+			<div class="datetimepicker input-append date">
+				<%= f.text_field :data_inicio %>
+				<span class="add-on">
+      				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+    			</span>
+			</div>
 			<%= f.label :data_fim %>
-			<%= f.date_select :data_fim %>
+			<div class="datetimepicker input-append date">
+				<%= f.text_field :data_fim %>
+				<span class="add-on">
+      				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+    			</span>
+			</div>
 			<%= f.label :nota %>
 			<%= f.text_field :nota %>
 		</fieldset>
@@ -21,3 +31,12 @@
 		<%= link_to "Voltar", @intern, class: 'btn' %>
 	<% end %>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.datetimepicker').datetimepicker({
+			format: 'yyyy-MM-dd',
+			pickTime: false
+		});
+	});
+</script>

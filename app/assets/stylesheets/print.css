@@ -10,7 +10,8 @@
 	body {
 		padding-top:0;
 	}
-	.btn {
+	
+	.btn, ul li .btn {
 		display: none;
 	}
 }

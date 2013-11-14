@@ -1,43 +1,48 @@
 <% provide(:title, @intern.nome) %>
 
+<h1><%= @intern.nome %></h1>
 <div class="span10 offset1">
-	<div class="row-fluid">
-		<div class="span5">
-			<h1><%= @intern.nome %></h1>
-		</div>   
-		<div class="span5"> 
-			<dl class="dl-horizontal">
-				<dt>N. mecanográfico:</dt>
-				<dd><%= @intern.numero_mecanografico %><dd>
-				<dt>Cédula Profissional:</dt>
-				<dd><%= @intern.cedula_profissional %></dd>
-				<dt>Telefone:</dt>
-				<dd><%= @intern.telefone %>&nbsp;</dd>
-				<dt>Telemóvel:</dt>
-				<dd><%= @intern.telemovel %>&nbsp;</dd>
-				<dt>E-mail:</dt>
-				<dd><%= @intern.email %>&nbsp;</dd>
-				<dt>Nota média:</dt>
-				<dd><%= @intern.nota_media %>&nbsp;</dd>
-				<dt>Nota final:</dt>
-				<dd><%= @intern.nota_final_exame %></dd>
-			</dl>
-		</div>
-		<div class="span2">
-			<%= link_to 'Editar', edit_intern_path(@intern), class: 'btn btn-block' %>
-			<%= link_to 'Eliminar', @intern, method: :delete, data: { confirm: 'Tem a certeza?' }, class: 'btn btn-block btn-danger' %>
-			<% if @intern.firstyear.nil? %>
-				<%= link_to 'Ano Comum', new_intern_firstyear_path(@intern), class: 'btn btn-block' %>
-			<% end %>
-			<%= link_to 'Especialidade', new_intern_internship_path(@intern), class: 'btn btn-block' %>
-		</div>
-	</div>
-	<div class="row-fluid well">
-		<% unless @intern.firstyear.nil? %>
-			<%= render 'firstyears/showfirstyear' %>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>N. mecanográfico</th>
+				<th>Cédula Profissional</th>
+				<th>Telefone</th>
+				<th>Telemóvel</th>
+				<th>E-mail</th>
+				<th>Nota média</th>
+				<th>Nota final</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @intern.numero_mecanografico %></td>
+				<td><%= @intern.cedula_profissional %></td>
+				<td><%= @intern.telefone %></td>
+				<td><%= @intern.telemovel %></td>
+				<td><%= @intern.email %></td>
+				<td><%= @intern.nota_media %></td>
+				<td><%= @intern.nota_final_exame %></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="btn-group">
+		<%= link_to 'Editar', edit_intern_path(@intern), class: 'btn' %>
+		<%= link_to 'Eliminar', @intern, method: :delete, data: { confirm: 'Tem a certeza?'}, class: 'btn btn-danger' %>
+		<% if @intern.firstyear.nil? %>
+			<%= link_to 'Introduzir ano comum', new_intern_firstyear_path(@intern), class: 'btn btn-primary' %>
 		<% end %>
+		<%= link_to 'Introduzir novo estágio', new_intern_internship_path(@intern), class: 'btn btn-primary' %>
+		<%= link_to "Voltar à lista de internos", interns_path, class: 'btn btn-link' %>
 	</div>
-	<div class="row-fluid well">
-		<%= render 'internships/showinternships' %>
+	<% unless @intern.firstyear.nil? %>
+		<div class="row-fluid">
+			<div class="well well-small">
+				<%= render 'firstyears/show' %>
+			</div>
+		</div>
+	<% end %>
+	<div class="row-fluid">
+		<%= render 'internships/show' %>
 	</div>
 </div>
