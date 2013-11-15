@@ -11,6 +11,7 @@
 					<th>Serviço</th>
 					<th>Início</th>
 					<th>Fim</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,12 +29,12 @@
 					<td><%= internship.service.nome %></td>
 					<td><%= internship.data_inicio %></td>
 					<td><%= internship.data_fim %></td>
+					<td>
+						<%= link_to "Eliminar", [internship.intern, internship], method: :delete, data: { confirm: 'Tem a certeza?' }, class: 'btn btn-danger btn-mini' %></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td colspan="6"><%= internship.observacoes %></td>
-					<td>
-						<%= link_to "Eliminar", [internship.intern, internship], method: :delete, data: { confirm: 'Tem a certeza?' }, class: 'btn btn-danger btn-mini' %></td>
+					<td colspan="8"><%= internship.observacoes %></td>
 				</tr>
 				<% end %>
 			</tbody>
