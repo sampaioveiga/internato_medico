@@ -18,7 +18,7 @@
         <tbody>
             <% @interns.each do |intern| %>
                 <tr>
-                    <td><%= link_to intern.nome, intern, class: 'btn btn-link' %></td>
+                    <td><%= link_to 'Dr(a). ' + intern.nome, intern, class: 'btn btn-link' %></td>
                     <td><%= intern.numero_mecanografico %></td>
                     <td><%= intern.telefone %></td>
                     <td><%= intern.telemovel %></td>
