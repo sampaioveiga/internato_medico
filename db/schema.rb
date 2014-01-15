@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131022133030) do
+ActiveRecord::Schema.define(version: 20140110103642) do
 
   create_table "firstyears", force: true do |t|
     t.integer  "intern_id"
@@ -127,10 +127,17 @@ ActiveRecord::Schema.define(version: 20131022133030) do
     t.integer  "cedula_profissional"
     t.integer  "nota_media"
     t.integer  "nota_final_exame"
+    t.integer  "internship_name_id",   limit: 255
   end
 
   add_index "interns", ["cedula_profissional"], name: "index_interns_on_cedula_profissional", unique: true
   add_index "interns", ["numero_mecanografico"], name: "index_interns_on_numero_mecanografico", unique: true
+
+  create_table "internship_names", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "internships", force: true do |t|
     t.string   "nome"

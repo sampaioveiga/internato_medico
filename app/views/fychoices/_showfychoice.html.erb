@@ -1,7 +1,11 @@
 <tr>
 	<% unless @intern.firstyear.fychoice.nil? %>
 		<td><%= link_to @intern.firstyear.fychoice.fyoption.nome, edit_intern_firstyear_fychoice_path(@intern, @intern.firstyear, @intern.firstyear.fychoice) %></td>
-		<td><%= @intern.firstyear.fychoice.healthcareunit.nome %></td>
+		<% unless @intern.firstyear.fychoice.healthcareunit.nil? %>
+			<td><%= @intern.firstyear.fychoice.healthcareunit.nome %></td>
+		<% else %>
+			<td></td>
+		<% end %>
 		<% unless @intern.firstyear.fychoice.supervisor.nil? %>
 			<td><%= @intern.firstyear.fychoice.supervisor.nome %></td>
 		<% else %>

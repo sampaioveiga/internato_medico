@@ -1,11 +1,12 @@
 InternatoMedico::Application.routes.draw do
   resources :users,           except: [ :show, :destroy ]
   resources :sessions,        except: [ :show ]
-  resources :healthcareunits, except: [ :show, :destroy ]
+  resources :healthcareunits, except: [ :show ]
   resources :services,        except: [ :show, :destroy ]
   resources :organizations,   except: [ :show, :destroy ]
   resources :supervisors,     except: [ :show, :destroy ]
   resources :fyoptions,       except: [ :show, :destroy ]
+  resources :internship_names
   resources :interns do
     resources :internships
     resources :firstyears do

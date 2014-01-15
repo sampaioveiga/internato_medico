@@ -1,5 +1,5 @@
 class Healthcareunit < ActiveRecord::Base
-	has_many :internships
+	has_many :internships, dependent: :nullify
 	has_many :fymedicines
 	has_many :fyprimaries
 	has_many :fycirurgies

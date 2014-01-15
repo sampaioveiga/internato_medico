@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Nome</th>
+                <th>Especialidade</th>
                 <th>Numero mecanográfico</th>
                 <th>Telefone</th>
                 <th>Telemovel</th>
@@ -19,6 +20,11 @@
             <% @interns.each do |intern| %>
                 <tr>
                     <td><%= link_to 'Dr(a). ' + intern.nome, intern, class: 'btn btn-link' %></td>
+                    <% unless intern.internship_name.nil? %>
+                        <td><b><%= intern.internship_name.nome %></b></td>
+                    <% else %>
+                        <td>&nbsp;</td>
+                    <% end %>
                     <td><%= intern.numero_mecanografico %></td>
                     <td><%= intern.telefone %></td>
                     <td><%= intern.telemovel %></td>

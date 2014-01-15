@@ -25,7 +25,11 @@
 					<% else %>
 						<td>&nbsp;</td>
 					<% end %>
-					<td><%= internship.healthcareunit.nome %></td>
+					<% unless internship.healthcareunit.nil? %>
+						<td><%= internship.healthcareunit.nome %></td>
+					<% else %>
+						<td></td>
+					<% end %>
 					<td><%= internship.service.nome %></td>
 					<td><%= internship.data_inicio %></td>
 					<td><%= internship.data_fim %></td>

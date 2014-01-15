@@ -18,6 +18,8 @@
     <%= f.text_field :numero_mecanografico %>
     <%= f.label :cedula_profissional %>
     <%= f.text_field :cedula_profissional %>
+    <%= f.label :designacao_internato_id %>
+    <%= f.collection_select :internship_name_id, InternshipName.order('nome'), :id, :nome, include_blank: true %>
     <%= f.label :telefone %>
     <%= f.text_field :telefone %>
     <%= f.label :telemovel %>

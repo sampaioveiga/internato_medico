@@ -1,5 +1,6 @@
 class Intern < ActiveRecord::Base
 	has_one :firstyear, validate: true, dependent: :destroy
+  belongs_to :internship_name
 	has_many :internships, dependent: :destroy
 	#self.per_page = 2
 	

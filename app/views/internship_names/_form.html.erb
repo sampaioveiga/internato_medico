@@ -1,0 +1,20 @@
+<%= form_for(@internship_name) do |f| %>
+    <% if @internship_name.errors.any? %>
+        <div id="error_explanation">
+            <h2>O formulário tem <%= pluralize(@internship_name.errors.count, "erro") %></h2>
+
+            <ul>
+                <% @internship_name.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <fieldset>
+        <%= f.label :nome %>
+        <%= f.text_field :nome %>
+    </fieldset>
+    <%= f.submit "Guardar", class: 'btn btn-success' %>
+    <%= link_to "Cancelar", interns_path, class: 'btn' %>
+<% end %>

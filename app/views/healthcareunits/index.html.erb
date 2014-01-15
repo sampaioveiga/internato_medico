@@ -11,6 +11,7 @@
             <% @healthcareunits.each do |healthcareunit| %>
                 <tr>
                     <td><%= link_to healthcareunit.nome, edit_healthcareunit_path(healthcareunit) %></td>
+                    <td><%= link_to 'Eliminar', healthcareunit, method: :delete, data: { confirm: 'Tem a certeza?'}, class: 'btn btn-danger' %>
                 </tr>
             <% end %>
         </tbody>

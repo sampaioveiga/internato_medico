@@ -1,0 +1,18 @@
+<% provide(:title, "Estágios") %>
+
+<h1>Especialidades</h1>
+<div class="span6 offset3">
+	<div class="actions">
+		<%= link_to "Nova Especialidade", new_internship_name_path, class: "btn btn-primary" %>
+	</div>
+	<table class="table">
+		<tbody>
+			<% @internship_names.each do |internship_name| %>
+				<tr>
+					<td><%= link_to internship_name.nome, '#' %></td>
+					<td><%= link_to 'Eliminar', internship_name, method: :delete, data: { confirm: 'Tem a certeza?'}, class: 'btn btn-danger' %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
