@@ -6,11 +6,11 @@ class Internship < ActiveRecord::Base
 
 	validates :nome, 
 		presence: { message: "não pode estar em branco" }
-	validate :data_fim_cannot_be_before_data_inicio
+	validate :data_fim_cannot_be_prior_to_data_inicio
 
-	def data_fim_cannot_be_before_data_inicio
-		if data_fim < data_inicio
-			errors.add(:data_fim, "não pode ser anterior à Data inicio")
+	def data_fim_cannot_be_prior_to_data_inicio
+		if data_fim.present? && data_fim < data_inicio
+			errors.add(:data_fim, "não pode ser anterior a #{data_inicio}")
 		end
 	end
 end

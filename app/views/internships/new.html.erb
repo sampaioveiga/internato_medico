@@ -17,8 +17,6 @@
 			<legend>Novo Estágio de Especialidade</legend>
 			<%= f.label :nome, "Nome do estágio" %>
 			<%= f.text_field :nome, placeholder: 'Nome do estágio' %>
-			<%= f.label :supervisor_id, "Orientador" %>
-			<%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome, include_blank: true %>
 			<%= f.label :healthcareunit_id, "Unidade de Saúde" %>
 			<%= f.collection_select :healthcareunit_id, Healthcareunit.order('nome'), :id, :nome %>
 			<%= f.label :service_id, "Serviço" %>

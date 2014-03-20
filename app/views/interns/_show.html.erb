@@ -1,0 +1,52 @@
+<div class="row-fluid">
+	<div class="span4">
+		<h2>Dr(a). <%= @intern.nome %></h2>
+	</div>
+	<div class="span8">
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>N. Mecan.</th>
+				<th>Cédula Profissional</th>
+				<th>Telefone</th>
+				<th>Telemóvel</th>
+				<th>E-mail</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @intern.numero_mecanografico %></td>
+				<td><%= @intern.cedula_profissional %></td>
+				<td><%= @intern.telefone %></td>
+				<td><%= @intern.telemovel %></td>
+				<td><%= @intern.email %></td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Especialidade</th>
+				<th>Orientador</th>
+				<th>Nota média</th>
+				<th>Nota final</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<% unless @intern.internship_name.nil? %>
+						<%= @intern.internship_name.nome %>
+					<% end %>
+				</td>
+				<td>
+					<% unless @intern.supervisor.nil? %>
+						<%= @intern.supervisor.nome %>
+					<% end %>
+				</td>
+				<td><%= @intern.nota_media %></td>
+				<td><%= @intern.nota_final_exame %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,55 +1,21 @@
 <% provide(:title, @intern.nome) %>
 
-<h1>Dr(a). <%= @intern.nome %></h1>
 <div class="span10 offset1">
-	<div class="navbar">
-		<div class="navbar-inner">
-			<ul class="nav">
-				<li><%= link_to 'Editar', edit_intern_path(@intern) %></li>
-				<li class="divider-vertical"></li>
-				<li><%= link_to 'Eliminar', @intern, method: :delete, data: { confirm: 'Tem a certeza?'} %></li>
-				<li class="divider-vertical"></li>
+	<ul class="nav nav-pills">
+		<li class="active"><%= link_to "Voltar à lista de internos", interns_path %></li>
+		<li><%= link_to 'Editar', edit_intern_path(@intern) %></li>
+		<li><%= link_to 'Eliminar', @intern, method: :delete, data: { confirm: 'A eliminação é irreversível. Tem a certeza?'} %></li>
+		<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Internatos<b class="caret"></b></a>
+			<ul class="dropdown-menu">
 				<% if @intern.firstyear.nil? %>
 					<li><%= link_to 'Introduzir ano comum', new_intern_firstyear_path(@intern) %></li>
-					<li class="divider-vertical"></li>
 				<% end %>
 				<li><%= link_to 'Introduzir novo estágio', new_intern_internship_path(@intern) %></li>
-				<li class="divider-vertical"></li>
-				<li><%= link_to "Voltar à lista de internos", interns_path %></li>
 			</ul>
-		</div>
-	</div>
-	<table class="table table-condensed">
-		<thead>
-			<tr>
-				<th>Especialidade</th>
-				<th>N. Mecan.</th>
-				<th>Cédula Profissional</th>
-				<th>Telefone</th>
-				<th>Telemóvel</th>
-				<th>E-mail</th>
-				<th>Nota média</th>
-				<th>Nota final</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<% unless @intern.internship_name.nil? %>
-					<td><b><%= @intern.internship_name.nome %></b></td>
-				<% else %>
-					<td>&nbsp;</td>
-				<% end %>
-				<td><%= @intern.numero_mecanografico %></td>
-				<td><%= @intern.cedula_profissional %></td>
-				<td><%= @intern.telefone %></td>
-				<td><%= @intern.telemovel %></td>
-				<td><%= @intern.email %></td>
-				<td><%= @intern.nota_media %></td>
-				<td><%= @intern.nota_final_exame %></td>
-			</tr>
-		</tbody>
-	</table>
-	<!-- paste here -->
+		</li>
+	</ul>
+	<%= render 'show' %>
 	<% unless @intern.firstyear.nil? %>
 		<div class="row-fluid">
 			<div class="well well-small">

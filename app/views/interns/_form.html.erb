@@ -20,6 +20,8 @@
     <%= f.text_field :cedula_profissional %>
     <%= f.label :designacao_internato_id %>
     <%= f.collection_select :internship_name_id, InternshipName.order('nome'), :id, :nome, include_blank: true %>
+    <%= f.label :supervisor_id, "Orientador" %>
+    <%= f.collection_select :supervisor_id, Supervisor.order('nome'), :id, :nome, include_blank: true %>
     <%= f.label :telefone %>
     <%= f.text_field :telefone %>
     <%= f.label :telemovel %>

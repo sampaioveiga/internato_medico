@@ -1,0 +1,7 @@
+<% @internships.each do |internship| %>
+	<legend><%= internship.nome %></legend>
+	<% interns = internship.interns.sort_by{ |i| i[:nome] } %>
+	<% interns.each do |intern| %>
+		<p><%= link_to intern.nome, intern_path(intern) %></p>
+	<% end %>
+<% end %>

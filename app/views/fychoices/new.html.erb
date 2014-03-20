@@ -6,7 +6,7 @@
 	<%= form_for([@intern, @intern.firstyear, @intern.firstyear.build_fychoice]) do |f| %>
 		<fieldset>
 			<legend>Opção</legend>
-			<%= f.label :healthcareunit_id, "Unidade de sáude" %>
+			<%= f.label :healthcareunit_id, "Unidade de saúde" %>
 			<%= f.collection_select :healthcareunit_id, Healthcareunit.order('nome'), :id, :nome %>
 			<%= f.label :fyoption_id, "Opção" %>
 			<%= f.collection_select :fyoption_id, Fyoption.order('nome'), :id, :nome %>
@@ -26,6 +26,7 @@
       				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
     			</span>
 			</div>
+			<br /><small>A data de fim dever ser posterior à data de inicio</small>
 			<%= f.label :nota %>
 			<%= f.text_field :nota %>
 		</fieldset>

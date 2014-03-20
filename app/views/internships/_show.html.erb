@@ -6,7 +6,6 @@
 					<th></th>
 					<th>Estado</th>
 					<th>Nota</th>
-					<th>Orientador</th>
 					<th>U. Saúde</th>
 					<th>Serviço</th>
 					<th>Início</th>
@@ -20,11 +19,6 @@
 					<td><%= link_to internship.nome, edit_intern_internship_path(@intern, internship) %></td>
 					<td><%= internship.estado %></td>
 					<td><%= internship.nota %></td>
-					<% unless internship.supervisor.nil? %>
-						<td><%= internship.supervisor.nome %></td>
-					<% else %>
-						<td>&nbsp;</td>
-					<% end %>
 					<% unless internship.healthcareunit.nil? %>
 						<td><%= internship.healthcareunit.nome %></td>
 					<% else %>

@@ -1,0 +1,27 @@
+<legend>Alertas <span class="badge badge-warning"><%=  @alerts_number %></span></legend>
+<dl>
+	<% @internships_alert.each do |internship| %>
+		<dt><%= link_to internship.intern.nome, intern_path(internship.intern) %></dt>
+		<dd><%= internship.nome %></dd>
+	<% end %>
+	<% @fymedicines_alert.each do |internship| %>
+		<dt><%= link_to internship.firstyear.intern.nome, intern_path(internship.firstyear.intern) %></dt>
+		<dd>Ano comum - medicina</dd>
+	<% end %>
+	<% @fyprimaries_alert.each do |internship| %>
+		<dt><%= link_to internship.firstyear.intern.nome, intern_path(internship.firstyear.intern) %></dt>
+		<dd>Ano comum - primários</dd>
+	<% end %>
+	<% @fycirurgies_alert.each do |internship| %>
+		<dt><%= link_to internship.firstyear.intern.nome, intern_path(internship.firstyear.intern) %></dt>
+		<dd>Ano comum - cirurgia</dd>
+	<% end %>
+	<% @fypediatries_alert.each do |internship| %>
+		<dt><%= link_to internship.firstyear.intern.nome, intern_path(internship.firstyear.intern) %></dt>
+		<dd>Ano comum - pediatria</dd>
+	<% end %>
+	<% @fychoices_alert.each do |internship| %>
+		<dt><%= link_to internship.firstyear.intern.nome, intern_path(internship.firstyear.intern) %></dt>
+		<dd>Ano comum - <%= internship.fyoption.nome %></dd>
+	<% end %>
+</dl>
