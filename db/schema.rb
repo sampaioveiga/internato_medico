@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318145135) do
+ActiveRecord::Schema.define(version: 20140408153412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 20140318145135) do
     t.integer  "firstyear_id"
     t.date     "data_inicio"
     t.date     "data_fim"
-    t.integer  "nota"
     t.integer  "fyoption_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "healthcareunit_id"
+    t.decimal  "nota"
   end
 
   add_index "fychoices", ["firstyear_id"], name: "index_fychoices_on_firstyear_id", using: :btree
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20140318145135) do
     t.integer  "firstyear_id"
     t.date     "data_inicio"
     t.date     "data_fim"
-    t.integer  "nota"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "healthcareunit_id"
+    t.decimal  "nota"
   end
 
   add_index "fycirurgies", ["firstyear_id"], name: "index_fycirurgies_on_firstyear_id", using: :btree
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20140318145135) do
     t.date     "data_fim"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "nota"
     t.integer  "healthcareunit_id"
+    t.decimal  "nota"
   end
 
   add_index "fymedicines", ["firstyear_id"], name: "index_fymedicines_on_firstyear_id", using: :btree
@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(version: 20140318145135) do
     t.integer  "firstyear_id"
     t.date     "data_inicio"
     t.date     "data_fim"
-    t.integer  "nota"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "healthcareunit_id"
+    t.decimal  "nota"
   end
 
   add_index "fypediatries", ["firstyear_id"], name: "index_fypediatries_on_firstyear_id", using: :btree
@@ -96,10 +96,10 @@ ActiveRecord::Schema.define(version: 20140318145135) do
     t.integer  "firstyear_id"
     t.date     "data_inicio"
     t.date     "data_fim"
-    t.integer  "nota"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "healthcareunit_id"
+    t.decimal  "nota"
   end
 
   add_index "fyprimaries", ["firstyear_id"], name: "index_fyprimaries_on_firstyear_id", using: :btree
@@ -143,10 +143,10 @@ ActiveRecord::Schema.define(version: 20140318145135) do
     t.date     "data_inicio"
     t.date     "data_fim"
     t.string   "observacoes"
-    t.integer  "nota"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "intern_id"
+    t.decimal  "nota"
   end
 
   add_index "internships", ["healthcareunit_id"], name: "index_internships_on_healthcareunit_id", using: :btree
